@@ -159,7 +159,7 @@ The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function v(e){e.
       </div>
 
       <h2>The Skill</h2>
-      <a href="/agent-form/SKILL.md" class="skill-link-card" target="_blank">
+      <a href="/SKILL.md" class="skill-link-card" target="_blank">
         <div>
           <div class="skill-link-name">◈ agent-visual-form</div>
           <div class="skill-link-desc">Complete skill file — discovery → design → implementation → evaluation</div>
