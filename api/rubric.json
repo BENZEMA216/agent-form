@@ -99,5 +99,19 @@
       "color_narrative": 9.5
     },
     "final": 9.4
+  },
+  "scoring_method": {
+    "for_agents": "Score what you can from code review. Mark visually-dependent dimensions as 'pending_visual' if you cannot see the output. The rubric is still valuable — structural issues (bloom radius, color layer consistency, endpoint handling) are code-reviewable.",
+    "visually_dependent": [
+      "3d_presence",
+      "bloom_quality",
+      "alive_quality"
+    ],
+    "code_reviewable": [
+      "form_readability",
+      "scene_hierarchy",
+      "color_narrative"
+    ],
+    "ask_human": "If you have a human collaborator, share the live URL and ask them to score the visually-dependent dimensions."
   }
 }

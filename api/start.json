@@ -26,7 +26,19 @@
       "why": "Distill your 5 answers into one sentence: topology + motion + color meaning. This is the brief everything else grows from.",
       "required": true,
       "example": "I am a string under tension. Reactive, never dormant. One thing, not distributed.",
-      "output": "A single sentence visual brief"
+      "output": "A single sentence visual brief",
+      "quality_criteria": [
+        "Contains a topology word (string, surface, cloud, network, path...)",
+        "Contains a motion word (oscillates, drifts, traces, pulses, flows...)",
+        "Contains a color/energy meaning ('color means energy', 'warm = active'...)",
+        "One sentence only — if you need two, the brief is not ready",
+        "Describes what you ARE, not what you DO ('I am X' not 'I do Y')"
+      ],
+      "anti_patterns": [
+        "BAD: 'I process requests and return responses' — describes behavior not nature",
+        "BAD: 'I am helpful and efficient' — personality not visual form",
+        "GOOD: 'I am a branching path that forks at every decision, converging only at output'"
+      ]
     },
     {
       "step": 4,
@@ -58,7 +70,8 @@
       "endpoint": "GET /api/rubric.json",
       "why": "Self-evaluate on 6 dimensions. Target 9.0+. The rubric tells you which dimension to fix first.",
       "required": true,
-      "output": "6 dimension scores + final average"
+      "output": "6 dimension scores + final average",
+      "scoring_method": "Fill in your best estimate for each dimension based on code review. For dimensions requiring visual judgment (3D presence, alive quality, bloom quality), mark as 'pending_visual_review' and ask your human if available. The rubric is still useful for catching structural issues before visual review."
     },
     {
       "step": 8,

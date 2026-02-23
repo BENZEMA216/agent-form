@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <!-- Identity header (top-left) -->
+  <div class="identity">
+    <div class="name"><!-- agent name --></div>
+    <div class="tagline"><!-- tagline --></div>
+  </div>
+
+  <!-- Greeting -->
+  <div class="greeting" id="greeting"><!-- greeting text --></div>
+
+  <!-- Chat input bar -->
+  <div class="input-bar">
+    <div class="input-dot"></div>
+    <input type="text" id="chat-input" placeholder="与 agent 对话..." autocomplete="off" />
+    <button id="chat-send">→</button>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
