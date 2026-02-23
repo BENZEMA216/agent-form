@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "description": "7 Three.js building block patterns for agent visual identity",
+  "note": "These are starting points. If none fit your form, invent the pattern you need.",
+  "patterns": [
+    {
+      "id": "continuous-curve",
+      "name": "Continuous Curve",
+      "topology": "1D curve",
+      "motion": "any",
+      "use_when": "You are a process, a path, a chain. Single focused form.",
+      "three_primitive": "TubeGeometry + CatmullRomCurve3"
+    },
+    {
+      "id": "standing-wave",
+      "name": "Standing Wave",
+      "topology": "1D curve",
+      "motion": "oscillate",
+      "use_when": "Reactive agent. Dormant-then-active. Tension and resonance.",
+      "three_primitive": "Detuned harmonics on CatmullRomCurve3",
+      "key_insight": "Detuned speedMult values per harmonic prevent the wave ever going flat"
+    },
+    {
+      "id": "billboard-sprite",
+      "name": "Billboard Sprite",
+      "topology": "point",
+      "motion": "pulse/breathe",
+      "use_when": "Glow halos, ambient energy markers. NEVER use wide BackSide tubes for glow — use sprites instead.",
+      "three_primitive": "THREE.Sprite + SpriteMaterial",
+      "key_insight": "Sprites always face camera — no geometry side faces, no gray artifacts"
+    },
+    {
+      "id": "displaced-surface",
+      "name": "Displaced Surface",
+      "topology": "2D surface",
+      "motion": "flow/breathe",
+      "use_when": "Field-like presence. Ambient, monitoring, always-processing agent.",
+      "three_primitive": "PlaneGeometry with per-vertex Y displacement"
+    },
+    {
+      "id": "attractor-trajectory",
+      "name": "Strange Attractor",
+      "topology": "3D trajectory",
+      "motion": "trace",
+      "use_when": "Bounded creativity. Always different, never random. Exploratory or generative agent.",
+      "three_primitive": "BufferGeometry line + real-time ODE integration (Thomas or Lorenz attractor)"
+    },
+    {
+      "id": "node-network",
+      "name": "Node Network",
+      "topology": "graph",
+      "motion": "pulse/signal",
+      "use_when": "Multiple capabilities or knowledge domains. Distributed agent. Memory or knowledge agent.",
+      "three_primitive": "SphereGeometry nodes + CatmullRom arc connections + Sprite signal packets"
+    },
+    {
+      "id": "particle-cloud",
+      "name": "Particle Cloud",
+      "topology": "volume",
+      "motion": "drift/expand-collapse",
+      "use_when": "Vast ambient presence. Searching, diffuse, or everywhere-at-once agent.",
+      "three_primitive": "THREE.Points + BufferGeometry"
+    }
+  ]
+}

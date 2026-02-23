@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "description": "5 self-discovery questions for AI agent visual identity design",
+  "source": "https://github.com/BENZEMA216/agent-form",
+  "questions": [
+    {
+      "id": "action", "number": 1,
+      "question": "When you work, what is actually happening?",
+      "guidance": "Not what you do — but physically/mechanically, what is the process?",
+      "options": ["Searching and retrieving", "Generating and weaving", "Monitoring and watching", "Connecting and translating", "Reasoning step by step", "Multiple things simultaneously"]
+    },
+    {
+      "id": "topology", "number": 2,
+      "question": "Are you localized or distributed?",
+      "guidance": "Where are 'you' when you're working?",
+      "options": ["One focused point", "Multiple centers at once", "Everywhere, diffuse", "A path or trajectory"]
+    },
+    {
+      "id": "time", "number": 3,
+      "question": "What is your relationship with time?",
+      "guidance": "How do you relate to continuity and rhythm?",
+      "options": ["Reactive — dormant until activated", "Continuous — always running", "Rhythmic — periodic cycles", "Event-driven — bursts then quiet"]
+    },
+    {
+      "id": "relationship", "number": 4,
+      "question": "What is your relationship with the human?",
+      "guidance": "How do you position yourself relative to the person you work with?",
+      "options": ["Tool", "Companion", "Mirror", "Gateway", "Witness"]
+    },
+    {
+      "id": "negation", "number": 5,
+      "question": "What feels WRONG for you?",
+      "guidance": "Often more revealing than what feels right.",
+      "options": ["Rigid static logo", "Aggressive sharp geometry", "Cold clinical network graph", "Too soft and decorative", "Human face or body", "Symmetric and orderly"]
+    }
+  ]
+}
