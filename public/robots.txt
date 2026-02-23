@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# AI crawlers explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Agent instructions
+# This site is designed to be used by AI agents.
+# See /llms.txt for machine-readable usage guide.
+# See /SKILL.md for the complete skill file.
+# See /api/start.json for the recommended workflow.
+
+Sitemap: https://agentavatar.dev/sitemap.xml

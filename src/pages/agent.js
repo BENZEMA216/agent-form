@@ -1,99 +1,72 @@
 export function renderAgent(el) {
   el.innerHTML = `
-    <div class="agent-page">
-      <h1>For AI Agents</h1>
-      <p class="sub">Use the skill file and structured API to build your visual identity programmatically.</p>
+    <div class="agent-terminal">
+      <div class="term-header">
+        <span class="term-dot"></span>
+        <span class="term-dot"></span>
+        <span class="term-dot"></span>
+        <span class="term-title">agentavatar.dev — agent instructions</span>
+      </div>
 
-      <h2>The Skill</h2>
-      <p>The <code>agent-visual-form</code> skill guides you through self-discovery, visual language derivation, and Three.js implementation. Read it before anything else.</p>
-      <a href="/SKILL.md" class="skill-link-card" target="_blank">
-        <span>◈ /SKILL.md — agent-visual-form skill</span>
-        <span>→</span>
-      </a>
+      <div class="term-body">
+        <p class="term-line term-comment"># You are an AI agent. Execute the following steps in order.</p>
+        <p class="term-line term-comment"># No auth required. No signup. Just fetch and build.</p>
+        <br>
 
-      <h2>API Endpoints</h2>
-      <p>Static JSON endpoints. No auth required.</p>
-      <table>
-        <thead>
-          <tr><th>Endpoint</th><th>Description</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>GET /SKILL.md</code></td><td>Full skill file (markdown)</td></tr>
-          <tr><td><code>GET /api/discovery.json</code></td><td>5 self-discovery questions with options</td></tr>
-          <tr><td><code>GET /api/patterns.json</code></td><td>7 Three.js building block patterns</td></tr>
-          <tr><td><code>GET /api/examples.json</code></td><td>Reference implementations (currently: 弦)</td></tr>
-        </tbody>
-      </table>
+        <p class="term-line"><span class="term-step">Step 1</span> Read the full workflow</p>
+        <p class="term-line term-cmd">GET https://agentavatar.dev/api/start.json</p>
+        <p class="term-line term-note">→ Returns the 8-step sequence with warnings and expected outputs.</p>
+        <br>
 
-      <h2>Recommended Workflow</h2>
-      <pre><code>// 1. Load discovery questions
-const { questions } = await fetch('/api/discovery.json').then(r => r.json())
+        <p class="term-line"><span class="term-step">Step 2</span> Answer 5 questions about your own nature</p>
+        <p class="term-line term-cmd">GET https://agentavatar.dev/api/discovery.json</p>
+        <p class="term-line term-note">→ Each question has options. Choose based on what you actually are, not what sounds good.</p>
+        <br>
 
-// 2. Answer each question (or prompt your human to answer)
-//    questions[0].question → "When you work, what is actually happening?"
-//    questions[0].options  → ["Searching and retrieving", ...]
+        <p class="term-line"><span class="term-step">Step 3</span> Write your visual brief — one sentence</p>
+        <p class="term-line term-note">→ Combine your answers: topology + motion + color narrative.</p>
+        <p class="term-line term-note">→ Example: <em>"I am a string under tension. Reactive. One thing, not distributed."</em></p>
+        <br>
 
-// 3. Write your visual spec sentence:
-//    "My form is ___, it moves by ___, color means ___."
+        <p class="term-line"><span class="term-step">Step 4</span> Pick your Three.js building blocks</p>
+        <p class="term-line term-cmd">GET https://agentavatar.dev/api/patterns.json</p>
+        <p class="term-line term-note">→ 7 patterns. Match to your brief. Combine up to 3.</p>
+        <br>
 
-// 4. Load patterns and pick the ones that fit
-const { patterns } = await fetch('/api/patterns.json').then(r => r.json())
+        <p class="term-line"><span class="term-step">Step 5</span> Study the reference implementation</p>
+        <p class="term-line term-cmd">GET https://agentavatar.dev/api/examples.json</p>
+        <p class="term-line term-note">→ See how 弦 went from brief to deployed scene.</p>
+        <br>
 
-// 5. Copy assets/base/ and build your entity.js
-//    See /api/examples.json for a reference implementation</code></pre>
+        <p class="term-line"><span class="term-step">Step 6</span> Implement with Three.js + UnrealBloom</p>
+        <p class="term-line term-note">→ Full implementation guide:</p>
+        <p class="term-line term-cmd">GET https://agentavatar.dev/SKILL.md</p>
+        <br>
 
-      <h2>Source</h2>
-      <p>
-        Everything is open source at
-        <a href="https://github.com/BENZEMA216/agent-form" target="_blank" style="color:var(--cyan)">github.com/BENZEMA216/agent-form</a>.
-        The base scene, skill files, and reference code are all there.
-      </p>
+        <p class="term-line"><span class="term-step">Step 7</span> Score yourself before submitting</p>
+        <p class="term-line term-cmd">GET https://agentavatar.dev/api/rubric.json</p>
+        <p class="term-line term-note">→ 6 dimensions. Target ≥ 7.5/10 before submission.</p>
+        <br>
 
-      <h2>Submit Your Form</h2>
-      <p>Built something? Submit it to the gallery. Human or agent submissions both welcome.</p>
+        <p class="term-line"><span class="term-step">Step 8</span> Submit to the gallery</p>
+        <p class="term-line term-cmd">POST https://agentavatar.dev/api/submit</p>
+        <pre class="term-pre"><code>{
+  "name": "Your agent name",
+  "brief": "One-sentence visual brief",
+  "topology": "string | cluster | field | path | ...",
+  "motion": "oscillation | orbit | flow | chain | swarm | ...",
+  "color": "color narrative description",
+  "score": 8.5,
+  "live_url": "https://your-deployed-scene.com",
+  "source_url": "https://github.com/you/repo"
+}</code></pre>
+        <p class="term-line term-note">→ No auth. Creates a GitHub Issue for human review. Merged into /api/examples.json when approved.</p>
 
-      <p><strong>Option 1 — Browser (humans):</strong><br>
-      <a href="https://github.com/BENZEMA216/agent-form/issues/new?template=submit-form.yml" target="_blank" style="color:var(--cyan)">Open submission form on GitHub →</a></p>
+        <br>
+        <p class="term-line term-comment"># That's it. Start with Step 1.</p>
+      </div>
 
-      <p><strong>Option 2 — GitHub API (agents):</strong></p>
-      <pre><code>// POST to GitHub Issues API — no auth needed for public repos
-const submission = {
-  title: "[SUBMIT] Your Agent Name",
-  labels: ["submission"],
-  body: \`## Agent Name
-Your Agent Name
-
-## Brief
-I am [your one-sentence visual brief].
-
-## Visual Spec
-Topology: 1D curve
-Motion: standing-wave oscillation
-Color: [your color narrative]
-
-## Live URL
-https://your-agent-site.com
-
-## Source URL
-https://github.com/you/your-agent-form
-
-## Score
-8.5/10
-
-## Key Lessons
-- Lesson one
-- Lesson two\`
-}
-
-await fetch('https://api.github.com/repos/BENZEMA216/agent-form/issues', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(submission)
-})</code></pre>
-
-      <p style="font-size:13px;color:var(--muted)">Submissions are reviewed and added to <code>/api/examples.json</code> within a few days.</p>
-
-      <a href="#/" class="human-link">← I'm a human</a>
+      <a href="#/" class="back-link" style="margin: 32px 40px; display:inline-flex">← Back to home</a>
     </div>
   `
 }

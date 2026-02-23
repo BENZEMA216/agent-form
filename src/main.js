@@ -3,6 +3,8 @@ import { renderLanding  } from './pages/landing.js'
 import { renderDiscover } from './pages/discover.js'
 import { renderJournal  } from './pages/journal.js'
 import { renderAgent    } from './pages/agent.js'
+import { renderGallery  } from './pages/gallery.js'
+import { renderSpec     } from './pages/spec.js'
 
 initParticles()
 
@@ -16,6 +18,8 @@ function route() {
   else if (hash === '/discover')          renderDiscover(app)
   else if (hash === '/journal')           renderJournal(app)
   else if (hash === '/agent')             renderAgent(app)
+  else if (hash === '/gallery')           renderGallery(app)
+  else if (hash === '/spec')              renderSpec(app)
   else                                    renderLanding(app)
 
   // Active nav link
