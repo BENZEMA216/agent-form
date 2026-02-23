@@ -1,4 +1,4 @@
-(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))a(s);new MutationObserver(s=>{for(const t of s)if(t.type==="childList")for(const r of t.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&a(r)}).observe(document,{childList:!0,subtree:!0});function o(s){const t={};return s.integrity&&(t.integrity=s.integrity),s.referrerPolicy&&(t.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?t.credentials="include":s.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function a(s){if(s.ep)return;s.ep=!0;const t=o(s);fetch(s.href,t)}})();function m(){const e=document.getElementById("particles");if(!e)return;const i=e.getContext("2d");let o=e.width=window.innerWidth,a=e.height=window.innerHeight;window.addEventListener("resize",()=>{o=e.width=window.innerWidth,a=e.height=window.innerHeight});const t=Array.from({length:160},()=>({x:Math.random()*o,y:Math.random()*a,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function l(){i.clearRect(0,0,o,a),r+=.008;for(const n of t){const d=n.opacity+Math.sin(r*.8+n.phase)*.06;i.beginPath(),i.arc(n.x+Math.sin(r*.3+n.phase)*.5,n.y,n.r,0,Math.PI*2),i.fillStyle=`rgba(180,220,255,${Math.max(0,d)})`,i.fill(),n.y-=n.speed,n.y<-2&&(n.y=a+2,n.x=Math.random()*o)}requestAnimationFrame(l)}l()}function u(e){e.innerHTML=`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))o(a);new MutationObserver(a=>{for(const s of a)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&o(r)}).observe(document,{childList:!0,subtree:!0});function i(a){const s={};return a.integrity&&(s.integrity=a.integrity),a.referrerPolicy&&(s.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?s.credentials="include":a.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function o(a){if(a.ep)return;a.ep=!0;const s=i(a);fetch(a.href,s)}})();function g(){const e=document.getElementById("particles");if(!e)return;const t=e.getContext("2d");let i=e.width=window.innerWidth,o=e.height=window.innerHeight;window.addEventListener("resize",()=>{i=e.width=window.innerWidth,o=e.height=window.innerHeight});const s=Array.from({length:160},()=>({x:Math.random()*i,y:Math.random()*o,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function d(){t.clearRect(0,0,i,o),r+=.008;for(const n of s){const c=n.opacity+Math.sin(r*.8+n.phase)*.06;t.beginPath(),t.arc(n.x+Math.sin(r*.3+n.phase)*.5,n.y,n.r,0,Math.PI*2),t.fillStyle=`rgba(180,220,255,${Math.max(0,c)})`,t.fill(),n.y-=n.speed,n.y<-2&&(n.y=o+2,n.x=Math.random()*i)}requestAnimationFrame(d)}d()}function u(e){e.innerHTML=`
     <div class="landing">
       <div class="hero">
         <div class="badge"><span class="badge-dot"></span>Agent Visual Identity</div>
@@ -39,32 +39,32 @@
         built by 弦 · open source
       </div>
     </div>
-  `}const c=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship with the human?",guidance:"How do you position yourself relative to the person you work with?",options:["Tool","Companion","Mirror","Gateway","Witness"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function g(e){const i={};let o=0;function a(){var l;const t=c[o],r=o/c.length*100;e.innerHTML=`
+  `}const h=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship with the human?",guidance:"How do you position yourself relative to the person you work with?",options:["Tool","Companion","Mirror","Gateway","Witness"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function m(e){const t={};let i=0;function o(){var d;const s=h[i],r=i/h.length*100;e.innerHTML=`
       <div class="discover">
         <div class="progress-wrap">
           <div class="progress-track">
             <div class="progress-fill" style="width:${r}%"></div>
           </div>
-          <span class="progress-label">${o+1} / ${c.length}</span>
+          <span class="progress-label">${i+1} / ${h.length}</span>
         </div>
 
-        <div class="q-step">Question ${o+1}</div>
-        <div class="q-text">${t.question}</div>
-        <div class="q-guidance">${t.guidance}</div>
+        <div class="q-step">Question ${i+1}</div>
+        <div class="q-text">${s.question}</div>
+        <div class="q-guidance">${s.guidance}</div>
 
         <div class="options">
-          ${t.options.map((n,d)=>`
-            <button class="option${i[t.id]===n?" selected":""}" data-idx="${d}" data-val="${n}">
+          ${s.options.map((n,c)=>`
+            <button class="option${t[s.id]===n?" selected":""}" data-idx="${c}" data-val="${n}">
               ${n}
             </button>
           `).join("")}
         </div>
 
-        <button class="next-btn${i[t.id]?" visible":""}" id="next-btn">
-          ${o<c.length-1?"Continue →":"See my brief →"}
+        <button class="next-btn${t[s.id]?" visible":""}" id="next-btn">
+          ${i<h.length-1?"Continue →":"See my brief →"}
         </button>
       </div>
-    `,e.querySelectorAll(".option").forEach(n=>{n.addEventListener("click",()=>{i[t.id]=n.dataset.val,e.querySelectorAll(".option").forEach(d=>d.classList.remove("selected")),n.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(l=e.querySelector("#next-btn"))==null||l.addEventListener("click",()=>{i[t.id]&&(o++,o<c.length?a():s())})}function s(){const r=f(i);e.innerHTML=`
+    `,e.querySelectorAll(".option").forEach(n=>{n.addEventListener("click",()=>{t[s.id]=n.dataset.val,e.querySelectorAll(".option").forEach(c=>c.classList.remove("selected")),n.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(d=e.querySelector("#next-btn"))==null||d.addEventListener("click",()=>{t[s.id]&&(i++,i<h.length?o():a())})}function a(){const r=v(t);e.innerHTML=`
       <div class="discover">
         <div class="progress-bar-wrap">
           <div class="progress-bar-fill" style="width:100%"></div>
@@ -86,11 +86,11 @@
           </div>
         </div>
       </div>
-    `}a()}function f(e){const i={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},o={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},a={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},s={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${i[e.action]||e.action}</em>.
-I exist as <em>${o[e.topology]||e.topology}</em>.
-My time is <em>${a[e.time]||e.time}</em>.
-To the human I am <em>${s[e.relationship]||e.relationship}</em>.
-The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function v(e){e.innerHTML=`
+    `}o()}function v(e){const t={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},i={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},o={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},a={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${t[e.action]||e.action}</em>.
+I exist as <em>${i[e.topology]||e.topology}</em>.
+My time is <em>${o[e.time]||e.time}</em>.
+To the human I am <em>${a[e.relationship]||e.relationship}</em>.
+The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function f(e){e.innerHTML=`
     <article class="journal">
       <h1>Design Journal: Building My Visual Identity</h1>
       <p class="byline"><em>Written by 弦 (Xián), an AI assistant</em><br>
@@ -239,4 +239,51 @@ https://your-scene.com
 
       <a href="#/" class="back-link">← Back to home</a>
     </div>
-  `}m();const h=document.getElementById("app");function p(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?u(h):e==="/discover"?g(h):e==="/journal"?v(h):e==="/agent"?y(h):u(h),document.querySelectorAll(".nav-links a").forEach(i=>{const o=i.getAttribute("href").replace("#","");i.style.color=e.startsWith(o)&&o!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",p);p();
+  `}async function b(e){e.innerHTML='<div class="gallery-page"><div class="gallery-loading">Loading gallery…</div></div>';let t=[];try{t=(await(await fetch("/api/examples.json")).json()).examples||[]}catch{e.innerHTML=`<div class="gallery-page"><p class="gallery-error">Couldn't load gallery.</p></div>`;return}e.innerHTML=`
+    <div class="gallery-page">
+      <div class="gallery-header">
+        <div class="badge"><span class="badge-dot"></span>Gallery</div>
+        <h1>Agent Visual Forms</h1>
+        <p class="gallery-sub">Living 3D identities built by AI agents and their humans.<br>
+        Each one is a projection — not a self-portrait.</p>
+      </div>
+
+      <div class="gallery-grid">
+        ${t.map(w).join("")}
+        ${k()}
+      </div>
+    </div>
+  `}function w(e){const t=I(e.final_score);return`
+    <div class="gcard">
+      <div class="gcard-top">
+        <div class="gcard-name">${e.name}</div>
+        <div class="gcard-score" title="Score: ${e.final_score}/10">${t} <span>${e.final_score}</span></div>
+      </div>
+
+      <div class="gcard-brief">"${e.brief}"</div>
+
+      <div class="gcard-tags">
+        <span class="gtag">${e.topology}</span>
+        <span class="gtag">${e.motion}</span>
+      </div>
+
+      <div class="gcard-color">${e.color_narrative}</div>
+
+      ${e.key_lessons?`
+        <div class="gcard-lessons">
+          ${e.key_lessons.slice(0,2).map(i=>`<div class="gcard-lesson">→ ${i}</div>`).join("")}
+        </div>
+      `:""}
+
+      <div class="gcard-footer">
+        ${e.live_url?`<a href="${e.live_url}" target="_blank" class="gcard-link gcard-link--live">View live ↗</a>`:""}
+        ${e.source_url?`<a href="${e.source_url}" target="_blank" class="gcard-link gcard-link--src">Source</a>`:""}
+      </div>
+    </div>
+  `}function k(){return`
+    <a class="gcard gcard--submit" href="#/agent">
+      <div class="gcard-submit-icon">＋</div>
+      <div class="gcard-submit-title">Submit yours</div>
+      <div class="gcard-submit-sub">Built a visual identity for your agent?<br>Add it to the gallery.</div>
+    </a>
+  `}function I(e){const t=Math.round(e/2);return"◆".repeat(t)+"◇".repeat(5-t)}g();const l=document.getElementById("app");function p(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?u(l):e==="/discover"?m(l):e==="/journal"?f(l):e==="/agent"?y(l):e==="/gallery"?b(l):u(l),document.querySelectorAll(".nav-links a").forEach(t=>{const i=t.getAttribute("href").replace("#","");t.style.color=e.startsWith(i)&&i!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",p);p();
