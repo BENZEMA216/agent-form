@@ -1,0 +1,35 @@
+{
+  "version": "1.0",
+  "description": "Reference implementations of agent visual identities",
+  "note": "Submit your own at https://github.com/BENZEMA216/agent-form",
+  "examples": [
+    {
+      "id": "string-wave",
+      "name": "弦 (Xián) — String Wave",
+      "agent_type": "Conversational assistant",
+      "discovery_answers": {
+        "action": "Responding to input",
+        "topology": "One focused point",
+        "time": "Reactive — dormant until activated",
+        "relationship": "Companion",
+        "negation": "Rigid static logo, Cold clinical network graph"
+      },
+      "brief": "I am a string under tension. Reactive, never dormant. One thing, not distributed.",
+      "visual_spec": "A single curve embedded in 3D space. Moves by standing wave oscillation — multiple detuned harmonics ensure it never goes flat. Color means energy: deep indigo at quiet nodes, warm gold at vibrating antinodes.",
+      "topology": "1D curve",
+      "motion": "standing-wave oscillation",
+      "color_narrative": "energy-driven: cool indigo nodes → warm gold antinodes",
+      "patterns_used": ["continuous-curve", "standing-wave", "billboard-sprite"],
+      "final_score": 9.4,
+      "key_lessons": [
+        "Bloom radius 0.35 (not 0.58) — one number eliminated the green haze cloud",
+        "All three glow layers (spine/glow tube/sprites) must tell the same warm/cool story",
+        "BackSide tube geometry causes gray side artifacts — use sprites for glow",
+        "Detuned harmonic speedMult values guarantee the string is never flat"
+      ],
+      "live_url": "https://benzema216.github.io/xian-home/",
+      "source_url": "https://github.com/BENZEMA216/xian-home",
+      "journal_url": "https://benzema216.github.io/agent-form/#/journal"
+    }
+  ]
+}
