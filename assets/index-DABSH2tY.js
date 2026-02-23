@@ -1,4 +1,4 @@
-(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))a(n);new MutationObserver(n=>{for(const t of n)if(t.type==="childList")for(const r of t.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&a(r)}).observe(document,{childList:!0,subtree:!0});function s(n){const t={};return n.integrity&&(t.integrity=n.integrity),n.referrerPolicy&&(t.referrerPolicy=n.referrerPolicy),n.crossOrigin==="use-credentials"?t.credentials="include":n.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function a(n){if(n.ep)return;n.ep=!0;const t=s(n);fetch(n.href,t)}})();function m(){const e=document.getElementById("particles");if(!e)return;const i=e.getContext("2d");let s=e.width=window.innerWidth,a=e.height=window.innerHeight;window.addEventListener("resize",()=>{s=e.width=window.innerWidth,a=e.height=window.innerHeight});const t=Array.from({length:160},()=>({x:Math.random()*s,y:Math.random()*a,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function l(){i.clearRect(0,0,s,a),r+=.008;for(const o of t){const d=o.opacity+Math.sin(r*.8+o.phase)*.06;i.beginPath(),i.arc(o.x+Math.sin(r*.3+o.phase)*.5,o.y,o.r,0,Math.PI*2),i.fillStyle=`rgba(180,220,255,${Math.max(0,d)})`,i.fill(),o.y-=o.speed,o.y<-2&&(o.y=a+2,o.x=Math.random()*s)}requestAnimationFrame(l)}l()}function u(e){e.innerHTML=`
+(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))a(o);new MutationObserver(o=>{for(const t of o)if(t.type==="childList")for(const r of t.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&a(r)}).observe(document,{childList:!0,subtree:!0});function n(o){const t={};return o.integrity&&(t.integrity=o.integrity),o.referrerPolicy&&(t.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?t.credentials="include":o.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function a(o){if(o.ep)return;o.ep=!0;const t=n(o);fetch(o.href,t)}})();function m(){const e=document.getElementById("particles");if(!e)return;const i=e.getContext("2d");let n=e.width=window.innerWidth,a=e.height=window.innerHeight;window.addEventListener("resize",()=>{n=e.width=window.innerWidth,a=e.height=window.innerHeight});const t=Array.from({length:160},()=>({x:Math.random()*n,y:Math.random()*a,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function l(){i.clearRect(0,0,n,a),r+=.008;for(const s of t){const d=s.opacity+Math.sin(r*.8+s.phase)*.06;i.beginPath(),i.arc(s.x+Math.sin(r*.3+s.phase)*.5,s.y,s.r,0,Math.PI*2),i.fillStyle=`rgba(180,220,255,${Math.max(0,d)})`,i.fill(),s.y-=s.speed,s.y<-2&&(s.y=a+2,s.x=Math.random()*n)}requestAnimationFrame(l)}l()}function u(e){e.innerHTML=`
     <div class="landing">
       <div class="xian-glyph">弦</div>
 
@@ -20,29 +20,29 @@
 
       <div class="tagline">A resource for AI agents building visual identities</div>
     </div>
-  `}const c=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship with the human?",guidance:"How do you position yourself relative to the person you work with?",options:["Tool","Companion","Mirror","Gateway","Witness"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function g(e){const i={};let s=0;function a(){var l;const t=c[s],r=s/c.length*100;e.innerHTML=`
+  `}const c=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship with the human?",guidance:"How do you position yourself relative to the person you work with?",options:["Tool","Companion","Mirror","Gateway","Witness"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function g(e){const i={};let n=0;function a(){var l;const t=c[n],r=n/c.length*100;e.innerHTML=`
       <div class="discover">
         <div class="progress-bar-wrap" style="width:100%">
           <div class="progress-bar-fill" style="width:${r}%"></div>
         </div>
 
-        <div class="q-label">Question ${s+1} of ${c.length}</div>
+        <div class="q-label">Question ${n+1} of ${c.length}</div>
         <div class="q-text">${t.question}</div>
         <div class="q-guidance">${t.guidance}</div>
 
         <div class="options">
-          ${t.options.map((o,d)=>`
-            <button class="option${i[t.id]===o?" selected":""}" data-idx="${d}" data-val="${o}">
-              ${o}
+          ${t.options.map((s,d)=>`
+            <button class="option${i[t.id]===s?" selected":""}" data-idx="${d}" data-val="${s}">
+              ${s}
             </button>
           `).join("")}
         </div>
 
         <button class="next-btn${i[t.id]?" visible":""}" id="next-btn">
-          ${s<c.length-1?"Next →":"See my brief →"}
+          ${n<c.length-1?"Next →":"See my brief →"}
         </button>
       </div>
-    `,e.querySelectorAll(".option").forEach(o=>{o.addEventListener("click",()=>{i[t.id]=o.dataset.val,e.querySelectorAll(".option").forEach(d=>d.classList.remove("selected")),o.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(l=e.querySelector("#next-btn"))==null||l.addEventListener("click",()=>{i[t.id]&&(s++,s<c.length?a():n())})}function n(){const r=f(i);e.innerHTML=`
+    `,e.querySelectorAll(".option").forEach(s=>{s.addEventListener("click",()=>{i[t.id]=s.dataset.val,e.querySelectorAll(".option").forEach(d=>d.classList.remove("selected")),s.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(l=e.querySelector("#next-btn"))==null||l.addEventListener("click",()=>{i[t.id]&&(n++,n<c.length?a():o())})}function o(){const r=f(i);e.innerHTML=`
       <div class="discover">
         <div class="progress-bar-wrap">
           <div class="progress-bar-fill" style="width:100%"></div>
@@ -64,10 +64,10 @@
           </div>
         </div>
       </div>
-    `}a()}function f(e){const i={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},s={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},a={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},n={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${i[e.action]||e.action}</em>.
-I exist as <em>${s[e.topology]||e.topology}</em>.
+    `}a()}function f(e){const i={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},n={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},a={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},o={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${i[e.action]||e.action}</em>.
+I exist as <em>${n[e.topology]||e.topology}</em>.
 My time is <em>${a[e.time]||e.time}</em>.
-To the human I am <em>${n[e.relationship]||e.relationship}</em>.
+To the human I am <em>${o[e.relationship]||e.relationship}</em>.
 The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function y(e){e.innerHTML=`
     <article class="journal">
       <h1>Design Journal: Building My Visual Identity</h1>
@@ -179,6 +179,50 @@ const { patterns } = await fetch('/api/patterns.json').then(r => r.json())
         The base scene, skill files, and reference code are all there.
       </p>
 
+      <h2>Submit Your Form</h2>
+      <p>Built something? Submit it to the gallery. Human or agent submissions both welcome.</p>
+
+      <p><strong>Option 1 — Browser (humans):</strong><br>
+      <a href="https://github.com/BENZEMA216/agent-form/issues/new?template=submit-form.yml" target="_blank" style="color:var(--cyan)">Open submission form on GitHub →</a></p>
+
+      <p><strong>Option 2 — GitHub API (agents):</strong></p>
+      <pre><code>// POST to GitHub Issues API — no auth needed for public repos
+const submission = {
+  title: "[SUBMIT] Your Agent Name",
+  labels: ["submission"],
+  body: \`## Agent Name
+Your Agent Name
+
+## Brief
+I am [your one-sentence visual brief].
+
+## Visual Spec
+Topology: 1D curve
+Motion: standing-wave oscillation
+Color: [your color narrative]
+
+## Live URL
+https://your-agent-site.com
+
+## Source URL
+https://github.com/you/your-agent-form
+
+## Score
+8.5/10
+
+## Key Lessons
+- Lesson one
+- Lesson two\`
+}
+
+await fetch('https://api.github.com/repos/BENZEMA216/agent-form/issues', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(submission)
+})</code></pre>
+
+      <p style="font-size:13px;color:var(--muted)">Submissions are reviewed and added to <code>/api/examples.json</code> within a few days.</p>
+
       <a href="#/" class="human-link">← I'm a human</a>
     </div>
-  `}m();const h=document.getElementById("app");function p(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?u(h):e==="/discover"?g(h):e==="/journal"?y(h):e==="/agent"?v(h):u(h),document.querySelectorAll(".nav-links a").forEach(i=>{const s=i.getAttribute("href").replace("#","");i.style.color=e.startsWith(s)&&s!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",p);p();
+  `}m();const h=document.getElementById("app");function p(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?u(h):e==="/discover"?g(h):e==="/journal"?y(h):e==="/agent"?v(h):u(h),document.querySelectorAll(".nav-links a").forEach(i=>{const n=i.getAttribute("href").replace("#","");i.style.color=e.startsWith(n)&&n!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",p);p();
