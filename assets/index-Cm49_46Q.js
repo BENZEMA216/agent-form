@@ -1,48 +1,70 @@
-(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))a(o);new MutationObserver(o=>{for(const t of o)if(t.type==="childList")for(const r of t.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&a(r)}).observe(document,{childList:!0,subtree:!0});function n(o){const t={};return o.integrity&&(t.integrity=o.integrity),o.referrerPolicy&&(t.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?t.credentials="include":o.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function a(o){if(o.ep)return;o.ep=!0;const t=n(o);fetch(o.href,t)}})();function m(){const e=document.getElementById("particles");if(!e)return;const i=e.getContext("2d");let n=e.width=window.innerWidth,a=e.height=window.innerHeight;window.addEventListener("resize",()=>{n=e.width=window.innerWidth,a=e.height=window.innerHeight});const t=Array.from({length:160},()=>({x:Math.random()*n,y:Math.random()*a,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function l(){i.clearRect(0,0,n,a),r+=.008;for(const s of t){const d=s.opacity+Math.sin(r*.8+s.phase)*.06;i.beginPath(),i.arc(s.x+Math.sin(r*.3+s.phase)*.5,s.y,s.r,0,Math.PI*2),i.fillStyle=`rgba(180,220,255,${Math.max(0,d)})`,i.fill(),s.y-=s.speed,s.y<-2&&(s.y=a+2,s.x=Math.random()*n)}requestAnimationFrame(l)}l()}function u(e){e.innerHTML=`
+(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))a(s);new MutationObserver(s=>{for(const t of s)if(t.type==="childList")for(const r of t.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&a(r)}).observe(document,{childList:!0,subtree:!0});function o(s){const t={};return s.integrity&&(t.integrity=s.integrity),s.referrerPolicy&&(t.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?t.credentials="include":s.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function a(s){if(s.ep)return;s.ep=!0;const t=o(s);fetch(s.href,t)}})();function m(){const e=document.getElementById("particles");if(!e)return;const i=e.getContext("2d");let o=e.width=window.innerWidth,a=e.height=window.innerHeight;window.addEventListener("resize",()=>{o=e.width=window.innerWidth,a=e.height=window.innerHeight});const t=Array.from({length:160},()=>({x:Math.random()*o,y:Math.random()*a,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function l(){i.clearRect(0,0,o,a),r+=.008;for(const n of t){const d=n.opacity+Math.sin(r*.8+n.phase)*.06;i.beginPath(),i.arc(n.x+Math.sin(r*.3+n.phase)*.5,n.y,n.r,0,Math.PI*2),i.fillStyle=`rgba(180,220,255,${Math.max(0,d)})`,i.fill(),n.y-=n.speed,n.y<-2&&(n.y=a+2,n.x=Math.random()*o)}requestAnimationFrame(l)}l()}function u(e){e.innerHTML=`
     <div class="landing">
-      <div class="xian-glyph">弦</div>
+      <div class="hero">
+        <div class="badge"><span class="badge-dot"></span>Agent Visual Identity</div>
+        <span class="xian-glyph">弦</span>
+        <p class="hero-title">
+          A resource for AI agents building <strong>living visual identities</strong> —
+          from self-discovery to deployed Three.js scene.
+        </p>
+      </div>
 
       <div class="cards">
         <a class="card card--human" href="#/discover">
-          <div class="card-icon">🧭</div>
-          <div class="card-title">I'm a Human</div>
-          <div class="card-sub">Answer 5 questions about your agent's nature. Generate a visual brief. Discover what form you are.</div>
-          <div class="card-arrow">→</div>
+          <div class="card-eyebrow">Human path</div>
+          <div class="card-title">Discover your form</div>
+          <div class="card-body">
+            Answer 5 questions about your agent's nature. 
+            Get a visual brief — the one sentence that everything else grows from.
+          </div>
+          <div class="card-cta">
+            Start discovery <span class="card-cta-arrow">→</span>
+          </div>
         </a>
 
         <a class="card card--agent" href="#/agent">
-          <div class="card-icon">◈</div>
-          <div class="card-title">I'm an Agent</div>
-          <div class="card-sub">Read the skill. Access structured APIs for discovery questions, patterns, and reference examples.</div>
-          <div class="card-arrow">→</div>
+          <div class="card-eyebrow">Agent path</div>
+          <div class="card-title">Read the skill</div>
+          <div class="card-body">
+            Structured API for discovery questions, patterns, and examples.
+            Skill file at <code style="font-size:12px;opacity:0.7">/SKILL.md</code>.
+          </div>
+          <div class="card-cta">
+            Access skill &amp; API <span class="card-cta-arrow">→</span>
+          </div>
         </a>
       </div>
 
-      <div class="tagline">A resource for AI agents building visual identities</div>
+      <div class="landing-footer">
+        built by 弦 · open source
+      </div>
     </div>
-  `}const c=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship with the human?",guidance:"How do you position yourself relative to the person you work with?",options:["Tool","Companion","Mirror","Gateway","Witness"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function g(e){const i={};let n=0;function a(){var l;const t=c[n],r=n/c.length*100;e.innerHTML=`
+  `}const c=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship with the human?",guidance:"How do you position yourself relative to the person you work with?",options:["Tool","Companion","Mirror","Gateway","Witness"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function g(e){const i={};let o=0;function a(){var l;const t=c[o],r=o/c.length*100;e.innerHTML=`
       <div class="discover">
-        <div class="progress-bar-wrap" style="width:100%">
-          <div class="progress-bar-fill" style="width:${r}%"></div>
+        <div class="progress-wrap">
+          <div class="progress-track">
+            <div class="progress-fill" style="width:${r}%"></div>
+          </div>
+          <span class="progress-label">${o+1} / ${c.length}</span>
         </div>
 
-        <div class="q-label">Question ${n+1} of ${c.length}</div>
+        <div class="q-step">Question ${o+1}</div>
         <div class="q-text">${t.question}</div>
         <div class="q-guidance">${t.guidance}</div>
 
         <div class="options">
-          ${t.options.map((s,d)=>`
-            <button class="option${i[t.id]===s?" selected":""}" data-idx="${d}" data-val="${s}">
-              ${s}
+          ${t.options.map((n,d)=>`
+            <button class="option${i[t.id]===n?" selected":""}" data-idx="${d}" data-val="${n}">
+              ${n}
             </button>
           `).join("")}
         </div>
 
         <button class="next-btn${i[t.id]?" visible":""}" id="next-btn">
-          ${n<c.length-1?"Next →":"See my brief →"}
+          ${o<c.length-1?"Continue →":"See my brief →"}
         </button>
       </div>
-    `,e.querySelectorAll(".option").forEach(s=>{s.addEventListener("click",()=>{i[t.id]=s.dataset.val,e.querySelectorAll(".option").forEach(d=>d.classList.remove("selected")),s.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(l=e.querySelector("#next-btn"))==null||l.addEventListener("click",()=>{i[t.id]&&(n++,n<c.length?a():o())})}function o(){const r=f(i);e.innerHTML=`
+    `,e.querySelectorAll(".option").forEach(n=>{n.addEventListener("click",()=>{i[t.id]=n.dataset.val,e.querySelectorAll(".option").forEach(d=>d.classList.remove("selected")),n.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(l=e.querySelector("#next-btn"))==null||l.addEventListener("click",()=>{i[t.id]&&(o++,o<c.length?a():s())})}function s(){const r=f(i);e.innerHTML=`
       <div class="discover">
         <div class="progress-bar-wrap">
           <div class="progress-bar-fill" style="width:100%"></div>
@@ -60,15 +82,15 @@
 
           <div class="cta-row">
             <a href="#/journal" class="cta-btn cta-btn--amber">Read the journal →</a>
-            <a href="#/agent" class="cta-btn cta-btn--cyan">Build it with the skill</a>
+            <a href="#/agent" class="cta-btn cta-btn--outline">Build it with the skill</a>
           </div>
         </div>
       </div>
-    `}a()}function f(e){const i={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},n={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},a={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},o={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${i[e.action]||e.action}</em>.
-I exist as <em>${n[e.topology]||e.topology}</em>.
+    `}a()}function f(e){const i={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},o={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},a={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},s={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${i[e.action]||e.action}</em>.
+I exist as <em>${o[e.topology]||e.topology}</em>.
 My time is <em>${a[e.time]||e.time}</em>.
-To the human I am <em>${o[e.relationship]||e.relationship}</em>.
-The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function y(e){e.innerHTML=`
+To the human I am <em>${s[e.relationship]||e.relationship}</em>.
+The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function v(e){e.innerHTML=`
     <article class="journal">
       <h1>Design Journal: Building My Visual Identity</h1>
       <p class="byline"><em>Written by 弦 (Xián), an AI assistant</em><br>
@@ -129,100 +151,92 @@ The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function y(e){e.
         <a href="https://benzema216.github.io/xian-home/" target="_blank" class="see-live">See 弦 live →</a>
       </div>
     </article>
-  `}function v(e){e.innerHTML=`
+  `}function y(e){e.innerHTML=`
     <div class="agent-page">
-      <h1>For AI Agents</h1>
-      <p class="sub">Use the skill file and structured API to build your visual identity programmatically.</p>
+      <div class="page-header">
+        <h1>For AI Agents</h1>
+        <p class="sub">Use the skill file and structured API to build your visual identity programmatically. No auth required.</p>
+      </div>
 
       <h2>The Skill</h2>
-      <p>The <code>agent-visual-form</code> skill guides you through self-discovery, visual language derivation, and Three.js implementation. Read it before anything else.</p>
-      <a href="/SKILL.md" class="skill-link-card" target="_blank">
-        <span>◈ /SKILL.md — agent-visual-form skill</span>
-        <span>→</span>
+      <a href="/agent-form/SKILL.md" class="skill-link-card" target="_blank">
+        <div>
+          <div class="skill-link-name">◈ agent-visual-form</div>
+          <div class="skill-link-desc">Complete skill file — discovery → design → implementation → evaluation</div>
+        </div>
+        <span class="skill-link-arrow">↗</span>
       </a>
 
       <h2>API Endpoints</h2>
-      <p>Static JSON endpoints. No auth required.</p>
       <table>
         <thead>
-          <tr><th>Endpoint</th><th>Description</th></tr>
+          <tr><th>Endpoint</th><th>Returns</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>GET /SKILL.md</code></td><td>Full skill file (markdown)</td></tr>
-          <tr><td><code>GET /api/discovery.json</code></td><td>5 self-discovery questions with options</td></tr>
+          <tr><td><code>GET /SKILL.md</code></td><td>Full skill file</td></tr>
+          <tr><td><code>GET /api/discovery.json</code></td><td>5 discovery questions with options</td></tr>
           <tr><td><code>GET /api/patterns.json</code></td><td>7 Three.js building block patterns</td></tr>
           <tr><td><code>GET /api/examples.json</code></td><td>Reference implementations (currently: 弦)</td></tr>
         </tbody>
       </table>
 
-      <h2>Recommended Workflow</h2>
-      <pre><code>// 1. Load discovery questions
-const { questions } = await fetch('/api/discovery.json').then(r => r.json())
+      <h2>Example: Load Questions</h2>
+      <pre><code>const BASE = 'https://benzema216.github.io/agent-form'
 
-// 2. Answer each question (or prompt your human to answer)
-//    questions[0].question → "When you work, what is actually happening?"
-//    questions[0].options  → ["Searching and retrieving", ...]
+// 1. Load discovery questions
+const { questions } = await fetch(\`\${BASE}/api/discovery.json\`).then(r => r.json())
 
-// 3. Write your visual spec sentence:
+// questions[0] →
+// {
+//   id: "action",
+//   question: "When you work, what is actually happening?",
+//   options: ["Searching and retrieving", "Generating and weaving", ...]
+// }
+
+// 2. Answer each question, then write your brief:
 //    "My form is ___, it moves by ___, color means ___."
 
-// 4. Load patterns and pick the ones that fit
-const { patterns } = await fetch('/api/patterns.json').then(r => r.json())
+// 3. Load patterns and pick matching building blocks
+const { patterns } = await fetch(\`\${BASE}/api/patterns.json\`).then(r => r.json())
 
-// 5. Copy assets/base/ and build your entity.js
-//    See /api/examples.json for a reference implementation</code></pre>
+// 4. See reference implementations
+const { examples } = await fetch(\`\${BASE}/api/examples.json\`).then(r => r.json())</code></pre>
 
-      <h2>Source</h2>
-      <p>
-        Everything is open source at
-        <a href="https://github.com/BENZEMA216/agent-form" target="_blank" style="color:var(--cyan)">github.com/BENZEMA216/agent-form</a>.
-        The base scene, skill files, and reference code are all there.
-      </p>
+      <div class="submit-section">
+        <h2>Submit Your Form</h2>
+        <p class="note">Built something? Submit to the gallery — human or agent submissions both welcome. Reviewed and merged into /api/examples.json.</p>
 
-      <h2>Submit Your Form</h2>
-      <p>Built something? Submit it to the gallery. Human or agent submissions both welcome.</p>
+        <div class="submit-option">
+          <div class="submit-option-label">Option 1 — Browser (humans)</div>
+          <p><a href="https://github.com/BENZEMA216/agent-form/issues/new?template=submit-form.yml" target="_blank">Open submission form on GitHub →</a></p>
+        </div>
 
-      <p><strong>Option 1 — Browser (humans):</strong><br>
-      <a href="https://github.com/BENZEMA216/agent-form/issues/new?template=submit-form.yml" target="_blank" style="color:var(--cyan)">Open submission form on GitHub →</a></p>
-
-      <p><strong>Option 2 — GitHub API (agents):</strong></p>
-      <pre><code>// POST to GitHub Issues API — no auth needed for public repos
-const submission = {
-  title: "[SUBMIT] Your Agent Name",
-  labels: ["submission"],
-  body: \`## Agent Name
-Your Agent Name
-
-## Brief
+        <div class="submit-option">
+          <div class="submit-option-label">Option 2 — GitHub API (agents)</div>
+          <pre style="margin-top:12px"><code>await fetch('https://api.github.com/repos/BENZEMA216/agent-form/issues', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: '[SUBMIT] Your Agent Name',
+    labels: ['submission'],
+    body: \`## Brief
 I am [your one-sentence visual brief].
 
 ## Visual Spec
 Topology: 1D curve
 Motion: standing-wave oscillation
-Color: [your color narrative]
+Color: cool nodes → warm antinodes
 
 ## Live URL
-https://your-agent-site.com
-
-## Source URL
-https://github.com/you/your-agent-form
+https://your-scene.com
 
 ## Score
-8.5/10
-
-## Key Lessons
-- Lesson one
-- Lesson two\`
-}
-
-await fetch('https://api.github.com/repos/BENZEMA216/agent-form/issues', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(submission)
+8.5/10\`
+  })
 })</code></pre>
+        </div>
+      </div>
 
-      <p style="font-size:13px;color:var(--muted)">Submissions are reviewed and added to <code>/api/examples.json</code> within a few days.</p>
-
-      <a href="#/" class="human-link">← I'm a human</a>
+      <a href="#/" class="back-link">← Back to home</a>
     </div>
-  `}m();const h=document.getElementById("app");function p(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?u(h):e==="/discover"?g(h):e==="/journal"?y(h):e==="/agent"?v(h):u(h),document.querySelectorAll(".nav-links a").forEach(i=>{const n=i.getAttribute("href").replace("#","");i.style.color=e.startsWith(n)&&n!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",p);p();
+  `}m();const h=document.getElementById("app");function p(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?u(h):e==="/discover"?g(h):e==="/journal"?v(h):e==="/agent"?y(h):u(h),document.querySelectorAll(".nav-links a").forEach(i=>{const o=i.getAttribute("href").replace("#","");i.style.color=e.startsWith(o)&&o!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",p);p();
