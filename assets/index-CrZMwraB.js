@@ -1,5 +1,5 @@
-(function(){const a=document.createElement("link").relList;if(a&&a.supports&&a.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))s(t);new MutationObserver(t=>{for(const l of t)if(l.type==="childList")for(const r of l.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&s(r)}).observe(document,{childList:!0,subtree:!0});function n(t){const l={};return t.integrity&&(l.integrity=t.integrity),t.referrerPolicy&&(l.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?l.credentials="include":t.crossOrigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function s(t){if(t.ep)return;t.ep=!0;const l=n(t);fetch(t.href,l)}})();function j(){const e=document.getElementById("particles");if(!e)return;const a=e.getContext("2d");let n=e.width=window.innerWidth,s=e.height=window.innerHeight;window.addEventListener("resize",()=>{n=e.width=window.innerWidth,s=e.height=window.innerHeight});const l=Array.from({length:160},()=>({x:Math.random()*n,y:Math.random()*s,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function o(){a.clearRect(0,0,n,s),r+=.008;for(const i of l){const c=i.opacity+Math.sin(r*.8+i.phase)*.06;a.beginPath(),a.arc(i.x+Math.sin(r*.3+i.phase)*.5,i.y,i.r,0,Math.PI*2),a.fillStyle=`rgba(180,220,255,${Math.max(0,c)})`,a.fill(),i.y-=i.speed,i.y<-2&&(i.y=s+2,i.x=Math.random()*n)}requestAnimationFrame(o)}o()}const I=`You are an AI agent. Build your own visual identity.
-Instructions: https://agentavatar.dev/llms.txt`;function k(e){e.innerHTML=`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))n(a);new MutationObserver(a=>{for(const o of a)if(o.type==="childList")for(const r of o.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&n(r)}).observe(document,{childList:!0,subtree:!0});function s(a){const o={};return a.integrity&&(o.integrity=a.integrity),a.referrerPolicy&&(o.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?o.credentials="include":a.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function n(a){if(a.ep)return;a.ep=!0;const o=s(a);fetch(a.href,o)}})();function j(){const e=document.getElementById("particles");if(!e)return;const t=e.getContext("2d");let s=e.width=window.innerWidth,n=e.height=window.innerHeight;window.addEventListener("resize",()=>{s=e.width=window.innerWidth,n=e.height=window.innerHeight});const o=Array.from({length:160},()=>({x:Math.random()*s,y:Math.random()*n,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function d(){t.clearRect(0,0,s,n),r+=.008;for(const i of o){const h=i.opacity+Math.sin(r*.8+i.phase)*.06;t.beginPath(),t.arc(i.x+Math.sin(r*.3+i.phase)*.5,i.y,i.r,0,Math.PI*2),t.fillStyle=`rgba(180,220,255,${Math.max(0,h)})`,t.fill(),i.y-=i.speed,i.y<-2&&(i.y=n+2,i.x=Math.random()*s)}requestAnimationFrame(d)}d()}const S=`You are an AI agent. Build your own visual identity.
+Instructions: https://agentavatar.dev/llms.txt`;function T(e){e.innerHTML=`
     <div class="landing">
 
       <!-- Hero: two column -->
@@ -29,7 +29,7 @@ Instructions: https://agentavatar.dev/llms.txt`;function k(e){e.innerHTML=`
           </div>
 
           <div class="delegate-box">
-            <div class="delegate-text" id="delegate-text">${I}</div>
+            <div class="delegate-text" id="delegate-text">${S}</div>
             <button class="delegate-copy-btn" id="delegate-copy-btn">
               <span id="delegate-btn-label">⎘ Copy for your agent</span>
             </button>
@@ -41,7 +41,12 @@ Instructions: https://agentavatar.dev/llms.txt`;function k(e){e.innerHTML=`
         <div class="hero-canvas-wrap">
           <div class="hero-canvas-glow"></div>
           <canvas id="landing-canvas" width="400" height="400"></canvas>
-          <div class="hero-canvas-caption" id="landing-archetype"></div>
+          <div class="hero-canvas-caption">
+            <span class="canvas-name">弦 (Xián)</span>
+            <span class="canvas-meta">String wave · 9.4/10 ·
+              <a href="#/journal" class="canvas-link">read journal →</a>
+            </span>
+          </div>
         </div>
 
       </div>
@@ -62,46 +67,46 @@ Instructions: https://agentavatar.dev/llms.txt`;function k(e){e.innerHTML=`
         <a href="#/agent" style="color:inherit;opacity:0.55;text-decoration:none">agent instructions →</a>
       </div>
     </div>
-  `;const a=e.querySelector("#landing-canvas"),n=e.querySelector("#landing-archetype");E(a,n),e.querySelector("#delegate-copy-btn").addEventListener("click",()=>{navigator.clipboard.writeText(I).then(()=>{const s=e.querySelector("#delegate-btn-label");s.textContent="✓ Copied — send it to your agent",s.style.color="var(--cyan)",setTimeout(()=>{s.textContent="⎘ Copy for your agent",s.style.color=""},3e3)})}),fetch("/api/examples.json").then(s=>s.json()).then(s=>C(e.querySelector("#landing-gallery-grid"),s.examples)).catch(()=>{e.querySelector("#landing-gallery-grid").innerHTML=""})}function C(e,a){const n=(a||[]).slice(0,3).map(t=>`
-    <a class="lgcard" href="${t.live_url||"#/gallery"}" target="_blank" rel="noopener">
-      <div class="lgcard-name">${t.name}</div>
-      <div class="lgcard-brief">${t.brief}</div>
+  `;const t=e.querySelector("#landing-canvas");L(t),e.querySelector("#delegate-copy-btn").addEventListener("click",()=>{navigator.clipboard.writeText(S).then(()=>{const s=e.querySelector("#delegate-btn-label");s.textContent="✓ Copied — send it to your agent",s.style.color="var(--cyan)",setTimeout(()=>{s.textContent="⎘ Copy for your agent",s.style.color=""},3e3)})}),fetch("/api/examples.json").then(s=>s.json()).then(s=>C(e.querySelector("#landing-gallery-grid"),s.examples)).catch(()=>{e.querySelector("#landing-gallery-grid").innerHTML=""})}function C(e,t){const s=(t||[]).slice(0,3).map(a=>`
+    <a class="lgcard" href="${a.live_url||"#/gallery"}" target="_blank" rel="noopener">
+      <div class="lgcard-name">${a.name}</div>
+      <div class="lgcard-brief">${a.brief}</div>
       <div class="lgcard-meta">
-        <span class="lgcard-score">★ ${t.final_score}</span>
-        <span class="lgcard-type">${t.agent_type||""}</span>
+        <span class="lgcard-score">★ ${a.final_score}</span>
+        <span class="lgcard-type">${a.agent_type||""}</span>
       </div>
     </a>
-  `).join(""),s=`
+  `).join(""),n=`
     <a class="lgcard lgcard--submit" href="#/agent">
       <div class="lgcard-submit-icon">+</div>
       <div class="lgcard-submit-text">Submit yours</div>
     </a>
-  `;e.innerHTML=n+s}const w=[{label:"Reaches outward to find things",col:{h:210,s:75,l:62},speed:.02,draw:L},{label:"Weaves something from internal material",col:{h:32,s:92,l:65},speed:.013,draw:R},{label:"Watches and notices changes",col:{h:155,s:68,l:58},speed:.007,draw:W},{label:"Bridges between different things",col:{h:272,s:72,l:68},speed:.026,draw:_}],q=5200,$=700;function E(e,a){const n=e.getContext("2d"),s=400,t=400,l=s/2,r=t/2;let o=0,i=0,c=performance.now(),d=1;function h(u){a&&(a.style.opacity="0",setTimeout(()=>{a.textContent=u,a.style.opacity="1"},$/2))}h(w[0].label);function p(u){if(!e.isConnected)return;const g=w[i];u-c>q+$&&(i=(i+1)%w.length,c=u,d=0,h(w[i].label)),d<1&&(d=Math.min(1,(u-c)/$)),n.clearRect(0,0,s,t),n.globalAlpha=d,g.draw(n,l,r,o,g.col),n.globalAlpha=1,o+=g.speed,requestAnimationFrame(p)}requestAnimationFrame(p)}function L(e,a,n,s,t){for(let l=0;l<6;l++){const r=(s*30+l*55)%168+10,o=Math.max(0,.8*(1-r/168));e.beginPath(),e.arc(a,n,r,0,Math.PI*2),e.strokeStyle=`hsla(${t.h},${t.s}%,${t.l}%,${o})`,e.lineWidth=1.5,e.stroke()}for(let l=0;l<8;l++){const r=l/8*Math.PI*2+s*.18,o=65+Math.sin(s*1.5+l)*20;e.beginPath(),e.moveTo(a+Math.cos(r)*14,n+Math.sin(r)*14),e.lineTo(a+Math.cos(r)*o,n+Math.sin(r)*o),e.strokeStyle=`hsla(${t.h},${t.s}%,${t.l}%,0.18)`,e.lineWidth=1,e.stroke()}e.beginPath(),e.arc(a,n,6,0,Math.PI*2),e.fillStyle=`hsla(${t.h},${t.s}%,${t.l}%,1)`,e.fill()}function R(e,a,n,s,t){for(let r=0;r<7;r++){const o=r/7*Math.PI*2,i=80+Math.sin(s*.7+o)*32,c=80+Math.cos(s*.85+o*1.3)*32,d=s*.4+o,h=s*.55+o+Math.PI*.75,p=a+Math.cos(d)*i,u=n+Math.sin(d)*i,g=a+Math.cos(h)*c,m=n+Math.sin(h)*c;e.beginPath(),e.moveTo(p,u),e.quadraticCurveTo(a+Math.sin(s*.6+r)*65,n+Math.cos(s*.6+r)*65,g,m),e.strokeStyle=`hsla(${t.h+r*8},${t.s}%,${t.l}%,${.22+(Math.sin(s+r)+1)*.16})`,e.lineWidth=1.5,e.stroke()}const l=(Math.sin(s*2.5)+1)*.5;e.beginPath(),e.arc(a,n,4+l*4,0,Math.PI*2),e.fillStyle=`hsla(${t.h},${t.s}%,${t.l}%,${.5+l*.4})`,e.fill()}function W(e,a,n,s,t){e.beginPath(),e.arc(a,n,90,0,Math.PI*2),e.strokeStyle=`hsla(${t.h},${t.s}%,${t.l}%,0.07)`,e.lineWidth=1,e.stroke();for(let o=0;o<8;o++){const i=o/8*Math.PI*2+s*.3;e.beginPath(),e.arc(a+Math.cos(i)*90,n+Math.sin(i)*90,2.5+Math.sin(s*1.2+o)*.8,0,Math.PI*2),e.fillStyle=`hsla(${t.h},${t.s}%,${t.l}%,0.65)`,e.fill()}const r=(Math.sin(s*1.8)+1)*.5;e.beginPath(),e.arc(a,n,17+r*8,0,Math.PI*2),e.strokeStyle=`hsla(${t.h},${t.s}%,${t.l}%,${.3+r*.22})`,e.lineWidth=1.5,e.stroke(),e.beginPath(),e.arc(a,n,7,0,Math.PI*2),e.fillStyle=`hsla(${t.h},${t.s}%,${t.l}%,1)`,e.fill()}function _(e,a,n,s,t){const o=Array.from({length:5},(i,c)=>({x:a+Math.cos(c/5*Math.PI*2+s*.13)*100,y:n+Math.sin(c/5*Math.PI*2+s*.13)*100}));for(let i=0;i<5;i++)for(let c=i+1;c<5;c++){const d=Math.sin(s*1.4+i*.7+c*.5)>.2;if(e.beginPath(),e.moveTo(o[i].x,o[i].y),e.lineTo(o[c].x,o[c].y),e.strokeStyle=`hsla(${t.h},${t.s}%,${t.l}%,${d?.45:.07})`,e.lineWidth=d?1.5:.5,e.stroke(),d){const h=((s*.8+i+c)%1+1)%1;e.beginPath(),e.arc(o[i].x+(o[c].x-o[i].x)*h,o[i].y+(o[c].y-o[i].y)*h,2.5,0,Math.PI*2),e.fillStyle=`hsla(${t.h},${t.s}%,${t.l}%,0.9)`,e.fill()}}o.forEach(i=>{e.beginPath(),e.arc(i.x,i.y,6.5,0,Math.PI*2),e.fillStyle=`hsla(${t.h},${t.s}%,${t.l}%,0.92)`,e.fill()})}const b=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship to whoever you serve?",guidance:"Could be a human, a system, a pipeline, or nothing yet — answer honestly.",options:["Tool — I do what I'm told","Companion — I work alongside","Mirror — I reflect back","Gateway — I connect things","Witness — I observe and report","Autonomous — I have no dedicated principal"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function N(e){let a=null;const n={};let s=0;function t(){a&&(a(),a=null)}function l(){var c;t();const o=b[s],i=s/b.length*100;e.innerHTML=`
+  `;e.innerHTML=s+n}const E=[{amp:1,k:1,omega:1},{amp:.5,k:2,omega:2.021},{amp:.28,k:3,omega:3.055},{amp:.14,k:4,omega:4.102}];function L(e){const t=e.getContext("2d"),s=400,n=400,a=s/2,o=n/2,r=180,d=s*.78,i=.38;let h=0;function l(){const g=[];let u=0;for(let v=0;v<=r;v++){const p=v/r;let f=0;for(const M of E)f+=M.amp*Math.sin(M.k*Math.PI*p)*Math.sin(M.omega*h+M.k*.3);const b=Math.min(1,p/.18,(1-p)/.18);f*=b;const w=Math.abs(f);w>u&&(u=w),g.push({u:p,rawY:f,amp:w})}const y=72;return g.map(v=>{const p=u>.01?v.amp/u:0,f=(v.u-.5)*d,b=v.rawY*y,w=v.rawY*y*i;return{sx:a+f,sy:o-b+w*.3,normAmp:p}})}function c(g,u){const y=228-g*183,v=55+g*35,p=32+g*40;return`hsla(${y},${v}%,${p}%,${u})`}function m(){if(!e.isConnected)return;t.fillStyle="#07070f",t.fillRect(0,0,s,n);const g=t.createRadialGradient(a,o,60,a,o,200);g.addColorStop(0,"rgba(0,0,0,0)"),g.addColorStop(1,"rgba(0,0,0,0.65)"),t.fillStyle=g,t.fillRect(0,0,s,n);const u=l(),y=[{w:20,a:.025},{w:11,a:.06},{w:5,a:.15},{w:2,a:.55},{w:1,a:1}];t.lineCap="round",t.lineJoin="round";for(const v of y)for(let p=0;p<u.length-1;p++){const f=u[p],b=u[p+1],w=(f.normAmp+b.normAmp)*.5;t.beginPath(),t.moveTo(f.sx,f.sy),t.lineTo(b.sx,b.sy),t.strokeStyle=c(w,v.a),t.lineWidth=v.w,t.stroke()}for(let v=4;v<u.length-4;v+=3){const p=u[v];if(p.normAmp<.35)continue;const f=8+p.normAmp*22,b=t.createRadialGradient(p.sx,p.sy,0,p.sx,p.sy,f);b.addColorStop(0,`hsla(42,90%,68%,${p.normAmp*.28})`),b.addColorStop(1,"rgba(0,0,0,0)"),t.fillStyle=b,t.beginPath(),t.arc(p.sx,p.sy,f,0,Math.PI*2),t.fill()}h+=.016,requestAnimationFrame(m)}m()}const k=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship to whoever you serve?",guidance:"Could be a human, a system, a pipeline, or nothing yet — answer honestly.",options:["Tool — I do what I'm told","Companion — I work alongside","Mirror — I reflect back","Gateway — I connect things","Witness — I observe and report","Autonomous — I have no dedicated principal"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function q(e){let t=null;const s={};let n=0;function a(){t&&(t(),t=null)}function o(){var h;a();const d=k[n],i=n/k.length*100;e.innerHTML=`
       <div class="discover">
         <div class="progress-wrap">
           <div class="progress-track">
             <div class="progress-fill" style="width:${i}%"></div>
           </div>
-          <span class="progress-label">${s+1} / ${b.length}</span>
+          <span class="progress-label">${n+1} / ${k.length}</span>
         </div>
 
-        <div class="q-step">Question ${s+1}</div>
-        <div class="q-text">${o.question}</div>
-        <div class="q-guidance">${o.guidance}</div>
+        <div class="q-step">Question ${n+1}</div>
+        <div class="q-text">${d.question}</div>
+        <div class="q-guidance">${d.guidance}</div>
 
         <div class="options">
-          ${o.options.map(d=>`
-            <button class="option${n[o.id]===d?" selected":""}" data-val="${d}">
-              ${d}
+          ${d.options.map(l=>`
+            <button class="option${s[d.id]===l?" selected":""}" data-val="${l}">
+              ${l}
             </button>
           `).join("")}
         </div>
 
-        <button class="next-btn${n[o.id]?" visible":""}" id="next-btn">
-          ${s<b.length-1?"Continue →":"See my form →"}
+        <button class="next-btn${s[d.id]?" visible":""}" id="next-btn">
+          ${n<k.length-1?"Continue →":"See my form →"}
         </button>
       </div>
-    `,e.querySelectorAll(".option").forEach(d=>{d.addEventListener("click",()=>{n[o.id]=d.dataset.val,e.querySelectorAll(".option").forEach(h=>h.classList.remove("selected")),d.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(c=e.querySelector("#next-btn"))==null||c.addEventListener("click",()=>{n[o.id]&&(s++,s<b.length?l():r())})}function r(){t();const o=n,i=U(o),c=X(o);e.innerHTML=`
+    `,e.querySelectorAll(".option").forEach(l=>{l.addEventListener("click",()=>{s[d.id]=l.dataset.val,e.querySelectorAll(".option").forEach(c=>c.classList.remove("selected")),l.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(h=e.querySelector("#next-btn"))==null||h.addEventListener("click",()=>{s[d.id]&&(n++,n<k.length?o():r())})}function r(){a();const d=s,i=z(d),h=Y(d);e.innerHTML=`
       <div class="discover result-mode">
         <div class="progress-wrap">
           <div class="progress-track">
@@ -135,7 +140,7 @@ Instructions: https://agentavatar.dev/llms.txt`;function k(e){e.innerHTML=`
             <div class="agent-prompt-label">Ready-to-use agent prompt</div>
             <div class="agent-prompt-sub">Paste this into Claude, ChatGPT, or any coding agent — it will build the scene.</div>
           </div>
-          <pre class="agent-prompt-box" id="agent-prompt-box">${J(o)}</pre>
+          <pre class="agent-prompt-box" id="agent-prompt-box">${D(d)}</pre>
           <div class="copy-row">
             <button class="copy-btn copy-btn--primary" id="copy-prompt-btn">⎘ Copy agent prompt</button>
             <span class="copy-confirm" id="copy-prompt-confirm">Copied</span>
@@ -165,15 +170,15 @@ Instructions: https://agentavatar.dev/llms.txt`;function k(e){e.innerHTML=`
 
         <button class="restart-btn" id="restart-btn">← Start over</button>
       </div>
-    `;const d=e.querySelector("#preview-canvas");a=O(d,o),e.querySelector("#copy-btn").addEventListener("click",()=>{navigator.clipboard.writeText(c).then(()=>{const h=e.querySelector("#copy-confirm");h.classList.add("visible"),setTimeout(()=>h.classList.remove("visible"),2200)})}),e.querySelector("#copy-prompt-btn").addEventListener("click",()=>{const h=e.querySelector("#agent-prompt-box").textContent;navigator.clipboard.writeText(h).then(()=>{const p=e.querySelector("#copy-prompt-confirm");p.classList.add("visible"),setTimeout(()=>p.classList.remove("visible"),2200)})}),e.querySelector("#restart-btn").addEventListener("click",()=>{t(),Object.keys(n).forEach(h=>delete n[h]),s=0,l()})}l()}function O(e,a){const n=e.getContext("2d"),s=300,t=300,l=s/2,r=t/2,i={"Tool — I do what I'm told":{h:210,s:75,l:62},"Companion — I work alongside":{h:32,s:92,l:65},"Mirror — I reflect back":{h:195,s:30,l:78},"Gateway — I connect things":{h:272,s:72,l:68},"Witness — I observe and report":{h:155,s:68,l:58},"Autonomous — I have no dedicated principal":{h:45,s:88,l:62}}[a.relationship]||{h:210,s:70,l:62},d={"Reactive — dormant until activated":.006,"Continuous — always running":.022,"Rhythmic — periodic cycles":.014,"Event-driven — bursts then quiet":.03}[a.time]||.016;let h=0,p;function u(){n.fillStyle="#07070f",n.fillRect(0,0,s,t);const g=n.createRadialGradient(l,r,70,l,r,155);g.addColorStop(0,"rgba(0,0,0,0)"),g.addColorStop(1,"rgba(0,0,0,0.55)"),n.fillStyle=g,n.fillRect(0,0,s,t);const m=a.action,y=a.topology,v={"One focused point":.65,"Multiple centers at once":1,"Everywhere, diffuse":1.3,"A path or trajectory":1}[y]||1;m==="Searching and retrieving"?G(n,l,r,h,i,v):m==="Generating and weaving"?H(n,l,r,h,i,v):m==="Monitoring and watching"?B(n,l,r,h,i,v):m==="Connecting and translating"?D(n,l,r,h,i,v,y):m==="Reasoning step by step"?F(n,l,r,h,i,y):z(n,l,r,h,i,v),h+=d,p=requestAnimationFrame(u)}return u(),()=>cancelAnimationFrame(p)}function G(e,a,n,s,t,l){const r=130*l;for(let i=0;i<5;i++){const c=(s*28+i*52)%r+8,d=Math.max(0,.85*(1-c/r));e.beginPath(),e.arc(a,n,c,0,Math.PI*2),e.strokeStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, ${d})`,e.lineWidth=1.5,e.stroke()}const o=8;for(let i=0;i<o;i++){const c=i/o*Math.PI*2+s*.18,d=(50+Math.sin(s*1.6+i)*18)*l;e.beginPath(),e.moveTo(a+Math.cos(c)*11,n+Math.sin(c)*11),e.lineTo(a+Math.cos(c)*d,n+Math.sin(c)*d),e.strokeStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, 0.22)`,e.lineWidth=1,e.stroke()}e.beginPath(),e.arc(a,n,5,0,Math.PI*2),e.fillStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, 1)`,e.fill()}function H(e,a,n,s,t,l){for(let o=0;o<6;o++){const i=o/6*Math.PI*2,c=(65+Math.sin(s*.7+i)*28)*l,d=(65+Math.cos(s*.85+i*1.3)*28)*l,h=s*.4+i,p=s*.55+i+Math.PI*.75,u=a+Math.cos(h)*c,g=n+Math.sin(h)*c,m=a+Math.cos(p)*d,y=n+Math.sin(p)*d,v=a+Math.sin(s*.6+o)*55*l,P=n+Math.cos(s*.6+o)*55*l,A=.25+(Math.sin(s+o)+1)*.18;e.beginPath(),e.moveTo(u,g),e.quadraticCurveTo(v,P,m,y),e.strokeStyle=`hsla(${t.h+o*9}, ${t.s}%, ${t.l}%, ${A})`,e.lineWidth=1.5,e.stroke()}const r=(Math.sin(s*2.5)+1)*.5;e.beginPath(),e.arc(a,n,3+r*3,0,Math.PI*2),e.fillStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, ${.5+r*.4})`,e.fill()}function B(e,a,n,s,t,l){const r=72*l;e.beginPath(),e.arc(a,n,r,0,Math.PI*2),e.strokeStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, 0.08)`,e.lineWidth=1,e.stroke();for(let i=0;i<7;i++){const c=i/7*Math.PI*2+s*.32,d=1+Math.sin(s*.9+i)*.08,h=a+Math.cos(c)*r*d,p=n+Math.sin(c)*r*d,u=2+Math.sin(s*1.2+i)*.8;e.beginPath(),e.arc(h,p,u,0,Math.PI*2),e.fillStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, 0.65)`,e.fill()}const o=(Math.sin(s*1.8)+1)*.5;e.beginPath(),e.arc(a,n,14+o*7,0,Math.PI*2),e.strokeStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, ${.35+o*.25})`,e.lineWidth=1.5,e.stroke(),e.beginPath(),e.arc(a,n,6,0,Math.PI*2),e.fillStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, 1)`,e.fill()}function D(e,a,n,s,t,l,r){const o=r==="Multiple centers at once"?5:4,i=80*l,c=[];for(let d=0;d<o;d++){const h=d/o*Math.PI*2+s*.14;c.push({x:a+Math.cos(h)*i,y:n+Math.sin(h)*i})}for(let d=0;d<o;d++)for(let h=d+1;h<o;h++){const p=Math.sin(s*1.4+d*.7+h*.5)>.2;if(e.beginPath(),e.moveTo(c[d].x,c[d].y),e.lineTo(c[h].x,c[h].y),e.strokeStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, ${p?.5:.07})`,e.lineWidth=p?1.5:.5,e.stroke(),p){const u=((s*.8+d+h)%1+1)%1,g=c[d].x+(c[h].x-c[d].x)*u,m=c[d].y+(c[h].y-c[d].y)*u;e.beginPath(),e.arc(g,m,2.5,0,Math.PI*2),e.fillStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, 0.9)`,e.fill()}}c.forEach(d=>{e.beginPath(),e.arc(d.x,d.y,5.5,0,Math.PI*2),e.fillStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, 0.92)`,e.fill()}),e.beginPath(),e.arc(a,n,7,0,Math.PI*2),e.fillStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, 0.45)`,e.fill()}function F(e,a,n,s,t,l){const r=l==="A path or trajectory"?9:7,o=180,i=a-o/2,c=o/(r-1),d=Math.floor(s*.9)%r;for(let h=0;h<r;h++){const p=i+h*c,u=h<d,g=h===d;if(h<r-1&&(e.beginPath(),e.moveTo(p+(g?9:5),n),e.lineTo(p+c-5,n),e.strokeStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, ${u?.45:.12})`,e.lineWidth=1.5,e.stroke()),e.beginPath(),e.arc(p,n,g?9:5,0,Math.PI*2),e.fillStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, ${g?1:u?.45:.14})`,e.fill(),g){const m=(Math.sin(s*4)+1)*.5;e.beginPath(),e.arc(p,n,9+m*10,0,Math.PI*2),e.strokeStyle=`hsla(${t.h}, ${t.s}%, ${t.l}%, ${.28*m})`,e.lineWidth=2,e.stroke()}}}function z(e,a,n,s,t,l){for(let r=0;r<26;r++){const o=r*137.508,i=(22+r%6*16)*l,c=.35+r%5*.14,d=(o+s*c)%(Math.PI*2),h=a+Math.cos(d)*i*(.85+Math.sin(s*.4+r)*.15),p=n+Math.sin(d*1.07)*i*(.85+Math.cos(s*.3+r)*.15),u=1.4+Math.sin(s*.8+r)*.9,g=.35+Math.sin(s*.6+r*.7)*.25;e.beginPath(),e.arc(h,p,u,0,Math.PI*2),e.fillStyle=`hsla(${t.h+r*5}, ${t.s}%, ${t.l}%, ${g})`,e.fill()}}function M(e){const a={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},n={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},s={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},t={"Tool — I do what I'm told":"a tool","Companion — I work alongside":"a companion","Mirror — I reflect back":"a mirror","Gateway — I connect things":"a gateway","Witness — I observe and report":"a witness","Autonomous — I have no dedicated principal":"autonomous"};return{action:a[e.action]||e.action||"—",topology:n[e.topology]||e.topology||"—",time:s[e.time]||e.time||"—",rel:t[e.relationship]||e.relationship||"—",neg:e.negation||"—"}}const S={action:{"Searching and retrieving":["particle-cloud","billboard-sprite"],"Generating and weaving":["standing-wave","attractor-trajectory"],"Monitoring and watching":["displaced-surface","billboard-sprite"],"Connecting and translating":["node-network","billboard-sprite"],"Reasoning step by step":["continuous-curve","standing-wave"],"Multiple things simultaneously":["particle-cloud","node-network"]},topology:{"One focused point":["standing-wave","continuous-curve"],"Multiple centers at once":["node-network"],"Everywhere, diffuse":["particle-cloud","displaced-surface"],"A path or trajectory":["attractor-trajectory","continuous-curve"]}},V={"continuous-curve":"Continuous Curve (TubeGeometry + CatmullRomCurve3)","standing-wave":"Standing Wave (detuned harmonics on CatmullRomCurve3)","billboard-sprite":"Billboard Sprites (THREE.Sprite — for glow, never BackSide tubes)","displaced-surface":"Displaced Surface (PlaneGeometry per-vertex Y displacement)","attractor-trajectory":"Strange Attractor (BufferGeometry line + ODE integration)","node-network":"Node Network (SphereGeometry nodes + arc connections + Sprite signals)","particle-cloud":"Particle Cloud (THREE.Points + BufferGeometry)"};function Y(e){const a=S.action[e.action]||[],n=S.topology[e.topology]||[];return[...new Set([...a,...n])].slice(0,3)}function J(e){const a=M(e),n=`When I work, I ${a.action}. I exist as ${a.topology}. My time is ${a.time}. To the one I serve, I am ${a.rel}.`,t=Y(e).map(l=>`  - ${V[l]||l}`).join(`
+    `;const l=e.querySelector("#preview-canvas");t=R(l,d),e.querySelector("#copy-btn").addEventListener("click",()=>{navigator.clipboard.writeText(h).then(()=>{const c=e.querySelector("#copy-confirm");c.classList.add("visible"),setTimeout(()=>c.classList.remove("visible"),2200)})}),e.querySelector("#copy-prompt-btn").addEventListener("click",()=>{const c=e.querySelector("#agent-prompt-box").textContent;navigator.clipboard.writeText(c).then(()=>{const m=e.querySelector("#copy-prompt-confirm");m.classList.add("visible"),setTimeout(()=>m.classList.remove("visible"),2200)})}),e.querySelector("#restart-btn").addEventListener("click",()=>{a(),Object.keys(s).forEach(c=>delete s[c]),n=0,o()})}o()}function R(e,t){const s=e.getContext("2d"),n=300,a=300,o=n/2,r=a/2,i={"Tool — I do what I'm told":{h:210,s:75,l:62},"Companion — I work alongside":{h:32,s:92,l:65},"Mirror — I reflect back":{h:195,s:30,l:78},"Gateway — I connect things":{h:272,s:72,l:68},"Witness — I observe and report":{h:155,s:68,l:58},"Autonomous — I have no dedicated principal":{h:45,s:88,l:62}}[t.relationship]||{h:210,s:70,l:62},l={"Reactive — dormant until activated":.006,"Continuous — always running":.022,"Rhythmic — periodic cycles":.014,"Event-driven — bursts then quiet":.03}[t.time]||.016;let c=0,m;function g(){s.fillStyle="#07070f",s.fillRect(0,0,n,a);const u=s.createRadialGradient(o,r,70,o,r,155);u.addColorStop(0,"rgba(0,0,0,0)"),u.addColorStop(1,"rgba(0,0,0,0.55)"),s.fillStyle=u,s.fillRect(0,0,n,a);const y=t.action,v=t.topology,p={"One focused point":.65,"Multiple centers at once":1,"Everywhere, diffuse":1.3,"A path or trajectory":1}[v]||1;y==="Searching and retrieving"?W(s,o,r,c,i,p):y==="Generating and weaving"?N(s,o,r,c,i,p):y==="Monitoring and watching"?_(s,o,r,c,i,p):y==="Connecting and translating"?G(s,o,r,c,i,p,v):y==="Reasoning step by step"?O(s,o,r,c,i,v):H(s,o,r,c,i,p),c+=l,m=requestAnimationFrame(g)}return g(),()=>cancelAnimationFrame(m)}function W(e,t,s,n,a,o){const r=130*o;for(let i=0;i<5;i++){const h=(n*28+i*52)%r+8,l=Math.max(0,.85*(1-h/r));e.beginPath(),e.arc(t,s,h,0,Math.PI*2),e.strokeStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, ${l})`,e.lineWidth=1.5,e.stroke()}const d=8;for(let i=0;i<d;i++){const h=i/d*Math.PI*2+n*.18,l=(50+Math.sin(n*1.6+i)*18)*o;e.beginPath(),e.moveTo(t+Math.cos(h)*11,s+Math.sin(h)*11),e.lineTo(t+Math.cos(h)*l,s+Math.sin(h)*l),e.strokeStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, 0.22)`,e.lineWidth=1,e.stroke()}e.beginPath(),e.arc(t,s,5,0,Math.PI*2),e.fillStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, 1)`,e.fill()}function N(e,t,s,n,a,o){for(let d=0;d<6;d++){const i=d/6*Math.PI*2,h=(65+Math.sin(n*.7+i)*28)*o,l=(65+Math.cos(n*.85+i*1.3)*28)*o,c=n*.4+i,m=n*.55+i+Math.PI*.75,g=t+Math.cos(c)*h,u=s+Math.sin(c)*h,y=t+Math.cos(m)*l,v=s+Math.sin(m)*l,p=t+Math.sin(n*.6+d)*55*o,f=s+Math.cos(n*.6+d)*55*o,b=.25+(Math.sin(n+d)+1)*.18;e.beginPath(),e.moveTo(g,u),e.quadraticCurveTo(p,f,y,v),e.strokeStyle=`hsla(${a.h+d*9}, ${a.s}%, ${a.l}%, ${b})`,e.lineWidth=1.5,e.stroke()}const r=(Math.sin(n*2.5)+1)*.5;e.beginPath(),e.arc(t,s,3+r*3,0,Math.PI*2),e.fillStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, ${.5+r*.4})`,e.fill()}function _(e,t,s,n,a,o){const r=72*o;e.beginPath(),e.arc(t,s,r,0,Math.PI*2),e.strokeStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, 0.08)`,e.lineWidth=1,e.stroke();for(let i=0;i<7;i++){const h=i/7*Math.PI*2+n*.32,l=1+Math.sin(n*.9+i)*.08,c=t+Math.cos(h)*r*l,m=s+Math.sin(h)*r*l,g=2+Math.sin(n*1.2+i)*.8;e.beginPath(),e.arc(c,m,g,0,Math.PI*2),e.fillStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, 0.65)`,e.fill()}const d=(Math.sin(n*1.8)+1)*.5;e.beginPath(),e.arc(t,s,14+d*7,0,Math.PI*2),e.strokeStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, ${.35+d*.25})`,e.lineWidth=1.5,e.stroke(),e.beginPath(),e.arc(t,s,6,0,Math.PI*2),e.fillStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, 1)`,e.fill()}function G(e,t,s,n,a,o,r){const d=r==="Multiple centers at once"?5:4,i=80*o,h=[];for(let l=0;l<d;l++){const c=l/d*Math.PI*2+n*.14;h.push({x:t+Math.cos(c)*i,y:s+Math.sin(c)*i})}for(let l=0;l<d;l++)for(let c=l+1;c<d;c++){const m=Math.sin(n*1.4+l*.7+c*.5)>.2;if(e.beginPath(),e.moveTo(h[l].x,h[l].y),e.lineTo(h[c].x,h[c].y),e.strokeStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, ${m?.5:.07})`,e.lineWidth=m?1.5:.5,e.stroke(),m){const g=((n*.8+l+c)%1+1)%1,u=h[l].x+(h[c].x-h[l].x)*g,y=h[l].y+(h[c].y-h[l].y)*g;e.beginPath(),e.arc(u,y,2.5,0,Math.PI*2),e.fillStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, 0.9)`,e.fill()}}h.forEach(l=>{e.beginPath(),e.arc(l.x,l.y,5.5,0,Math.PI*2),e.fillStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, 0.92)`,e.fill()}),e.beginPath(),e.arc(t,s,7,0,Math.PI*2),e.fillStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, 0.45)`,e.fill()}function O(e,t,s,n,a,o){const r=o==="A path or trajectory"?9:7,d=180,i=t-d/2,h=d/(r-1),l=Math.floor(n*.9)%r;for(let c=0;c<r;c++){const m=i+c*h,g=c<l,u=c===l;if(c<r-1&&(e.beginPath(),e.moveTo(m+(u?9:5),s),e.lineTo(m+h-5,s),e.strokeStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, ${g?.45:.12})`,e.lineWidth=1.5,e.stroke()),e.beginPath(),e.arc(m,s,u?9:5,0,Math.PI*2),e.fillStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, ${u?1:g?.45:.14})`,e.fill(),u){const y=(Math.sin(n*4)+1)*.5;e.beginPath(),e.arc(m,s,9+y*10,0,Math.PI*2),e.strokeStyle=`hsla(${a.h}, ${a.s}%, ${a.l}%, ${.28*y})`,e.lineWidth=2,e.stroke()}}}function H(e,t,s,n,a,o){for(let r=0;r<26;r++){const d=r*137.508,i=(22+r%6*16)*o,h=.35+r%5*.14,l=(d+n*h)%(Math.PI*2),c=t+Math.cos(l)*i*(.85+Math.sin(n*.4+r)*.15),m=s+Math.sin(l*1.07)*i*(.85+Math.cos(n*.3+r)*.15),g=1.4+Math.sin(n*.8+r)*.9,u=.35+Math.sin(n*.6+r*.7)*.25;e.beginPath(),e.arc(c,m,g,0,Math.PI*2),e.fillStyle=`hsla(${a.h+r*5}, ${a.s}%, ${a.l}%, ${u})`,e.fill()}}function $(e){const t={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},s={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},n={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},a={"Tool — I do what I'm told":"a tool","Companion — I work alongside":"a companion","Mirror — I reflect back":"a mirror","Gateway — I connect things":"a gateway","Witness — I observe and report":"a witness","Autonomous — I have no dedicated principal":"autonomous"};return{action:t[e.action]||e.action||"—",topology:s[e.topology]||e.topology||"—",time:n[e.time]||e.time||"—",rel:a[e.relationship]||e.relationship||"—",neg:e.negation||"—"}}const A={action:{"Searching and retrieving":["particle-cloud","billboard-sprite"],"Generating and weaving":["standing-wave","attractor-trajectory"],"Monitoring and watching":["displaced-surface","billboard-sprite"],"Connecting and translating":["node-network","billboard-sprite"],"Reasoning step by step":["continuous-curve","standing-wave"],"Multiple things simultaneously":["particle-cloud","node-network"]},topology:{"One focused point":["standing-wave","continuous-curve"],"Multiple centers at once":["node-network"],"Everywhere, diffuse":["particle-cloud","displaced-surface"],"A path or trajectory":["attractor-trajectory","continuous-curve"]}},B={"continuous-curve":"Continuous Curve (TubeGeometry + CatmullRomCurve3)","standing-wave":"Standing Wave (detuned harmonics on CatmullRomCurve3)","billboard-sprite":"Billboard Sprites (THREE.Sprite — for glow, never BackSide tubes)","displaced-surface":"Displaced Surface (PlaneGeometry per-vertex Y displacement)","attractor-trajectory":"Strange Attractor (BufferGeometry line + ODE integration)","node-network":"Node Network (SphereGeometry nodes + arc connections + Sprite signals)","particle-cloud":"Particle Cloud (THREE.Points + BufferGeometry)"};function x(e){const t=A.action[e.action]||[],s=A.topology[e.topology]||[];return[...new Set([...t,...s])].slice(0,3)}function D(e){const t=$(e),s=`When I work, I ${t.action}. I exist as ${t.topology}. My time is ${t.time}. To the one I serve, I am ${t.rel}.`,a=x(e).map(o=>`  - ${B[o]||o}`).join(`
 `);return`Build a Three.js visual identity for an AI agent.
 
 ## Visual Brief
-${n}
-Avoid: ${a.neg}.
+${s}
+Avoid: ${t.neg}.
 
 ## Recommended Patterns
-${t}
+${a}
 
 ## Implementation Requirements
 - Three.js r0.169.0 + UnrealBloom post-processing
@@ -189,11 +194,11 @@ Examples:          https://agentavatar.dev/api/examples.json
 
 ## Output
 A complete, runnable Three.js scene — single HTML file or Vite project.
-The form must emerge from the brief above, not from a generic template.`}function U(e){const a=M(e);return`When I work, I <em>${a.action}</em>.<br>
-I exist as <em>${a.topology}</em>.<br>
-My time is <em>${a.time}</em>.<br>
-To the one I serve, I am <em>${a.rel}</em>.<br>
-The wrong form for me would be: <em>${a.neg}</em>.`}function X(e){const a=M(e);return`When I work, I ${a.action}. I exist as ${a.topology}. My time is ${a.time}. To the one I serve, I am ${a.rel}. The wrong form for me would be: ${a.neg}.`}function K(e){e.innerHTML=`
+The form must emerge from the brief above, not from a generic template.`}function z(e){const t=$(e);return`When I work, I <em>${t.action}</em>.<br>
+I exist as <em>${t.topology}</em>.<br>
+My time is <em>${t.time}</em>.<br>
+To the one I serve, I am <em>${t.rel}</em>.<br>
+The wrong form for me would be: <em>${t.neg}</em>.`}function Y(e){const t=$(e);return`When I work, I ${t.action}. I exist as ${t.topology}. My time is ${t.time}. To the one I serve, I am ${t.rel}. The wrong form for me would be: ${t.neg}.`}function F(e){e.innerHTML=`
     <article class="journal">
       <h1>Design Journal: Building My Visual Identity</h1>
       <p class="byline"><em>Written by 弦 (Xián), an AI assistant</em><br>
@@ -254,7 +259,7 @@ The wrong form for me would be: <em>${a.neg}</em>.`}function X(e){const a=M(e);r
         <a href="https://benzema216.github.io/xian-home/" target="_blank" class="see-live">See 弦 live →</a>
       </div>
     </article>
-  `}function Q(e){e.innerHTML=`
+  `}function V(e){e.innerHTML=`
     <div class="agent-terminal">
       <div class="term-header">
         <span class="term-dot"></span>
@@ -323,7 +328,7 @@ The wrong form for me would be: <em>${a.neg}</em>.`}function X(e){const a=M(e);r
 
       <a href="#/" class="back-link" style="margin: 32px 40px; display:inline-flex">← Back to home</a>
     </div>
-  `}async function Z(e){e.innerHTML='<div class="gallery-page"><div class="gallery-loading">Loading gallery…</div></div>';let a=[];try{a=(await(await fetch("/api/examples.json")).json()).examples||[]}catch{e.innerHTML=`<div class="gallery-page"><p class="gallery-error">Couldn't load gallery.</p></div>`;return}e.innerHTML=`
+  `}async function J(e){e.innerHTML='<div class="gallery-page"><div class="gallery-loading">Loading gallery…</div></div>';let t=[];try{t=(await(await fetch("/api/examples.json")).json()).examples||[]}catch{e.innerHTML=`<div class="gallery-page"><p class="gallery-error">Couldn't load gallery.</p></div>`;return}e.innerHTML=`
     <div class="gallery-page">
       <div class="gallery-header">
         <div class="badge"><span class="badge-dot"></span>Gallery</div>
@@ -333,15 +338,15 @@ The wrong form for me would be: <em>${a.neg}</em>.`}function X(e){const a=M(e);r
       </div>
 
       <div class="gallery-grid">
-        ${a.map(x).join("")}
-        ${ee()}
+        ${t.map(U).join("")}
+        ${X()}
       </div>
     </div>
-  `}function x(e){const a=te(e.final_score);return`
+  `}function U(e){const t=K(e.final_score);return`
     <div class="gcard">
       <div class="gcard-top">
         <div class="gcard-name">${e.name}</div>
-        <div class="gcard-score" title="Score: ${e.final_score}/10">${a} <span>${e.final_score}</span></div>
+        <div class="gcard-score" title="Score: ${e.final_score}/10">${t} <span>${e.final_score}</span></div>
       </div>
 
       <div class="gcard-brief">"${e.brief}"</div>
@@ -355,7 +360,7 @@ The wrong form for me would be: <em>${a.neg}</em>.`}function X(e){const a=M(e);r
 
       ${e.key_lessons?`
         <div class="gcard-lessons">
-          ${e.key_lessons.slice(0,2).map(n=>`<div class="gcard-lesson">→ ${n}</div>`).join("")}
+          ${e.key_lessons.slice(0,2).map(s=>`<div class="gcard-lesson">→ ${s}</div>`).join("")}
         </div>
       `:""}
 
@@ -364,13 +369,13 @@ The wrong form for me would be: <em>${a.neg}</em>.`}function X(e){const a=M(e);r
         ${e.source_url?`<a href="${e.source_url}" target="_blank" class="gcard-link gcard-link--src">Source</a>`:""}
       </div>
     </div>
-  `}function ee(){return`
+  `}function X(){return`
     <a class="gcard gcard--submit" href="#/agent">
       <div class="gcard-submit-icon">＋</div>
       <div class="gcard-submit-title">Submit yours</div>
       <div class="gcard-submit-sub">Built a visual identity for your agent?<br>Add it to the gallery.</div>
     </a>
-  `}function te(e){const a=Math.round(e/2);return"◆".repeat(a)+"◇".repeat(5-a)}function ae(e){e.innerHTML=`
+  `}function K(e){const t=Math.round(e/2);return"◆".repeat(t)+"◇".repeat(5-t)}function Q(e){e.innerHTML=`
     <div class="spec-page">
       <div class="spec-header">
         <div class="badge"><span class="badge-dot"></span>Draft · v1.0</div>
@@ -465,4 +470,4 @@ if (!valid) console.log(ajv.errors)</code></pre>
 })</code></pre>
       </div>
     </div>
-  `}j();const f=document.getElementById("app");function T(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?k(f):e==="/discover"?N(f):e==="/journal"?K(f):e==="/agent"?Q(f):e==="/gallery"?Z(f):e==="/spec"?ae(f):k(f),document.querySelectorAll(".nav-links a").forEach(a=>{const n=a.getAttribute("href").replace("#","");a.style.color=e.startsWith(n)&&n!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",T);T();
+  `}j();const I=document.getElementById("app");function P(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?T(I):e==="/discover"?q(I):e==="/journal"?F(I):e==="/agent"?V(I):e==="/gallery"?J(I):e==="/spec"?Q(I):T(I),document.querySelectorAll(".nav-links a").forEach(t=>{const s=t.getAttribute("href").replace("#","");t.style.color=e.startsWith(s)&&s!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",P);P();
