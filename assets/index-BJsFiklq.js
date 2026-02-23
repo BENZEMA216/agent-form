@@ -1,4 +1,4 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))n(a);new MutationObserver(a=>{for(const s of a)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&n(r)}).observe(document,{childList:!0,subtree:!0});function i(a){const s={};return a.integrity&&(s.integrity=a.integrity),a.referrerPolicy&&(s.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?s.credentials="include":a.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function n(a){if(a.ep)return;a.ep=!0;const s=i(a);fetch(a.href,s)}})();function g(){const e=document.getElementById("particles");if(!e)return;const t=e.getContext("2d");let i=e.width=window.innerWidth,n=e.height=window.innerHeight;window.addEventListener("resize",()=>{i=e.width=window.innerWidth,n=e.height=window.innerHeight});const s=Array.from({length:160},()=>({x:Math.random()*i,y:Math.random()*n,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function d(){t.clearRect(0,0,i,n),r+=.008;for(const o of s){const c=o.opacity+Math.sin(r*.8+o.phase)*.06;t.beginPath(),t.arc(o.x+Math.sin(r*.3+o.phase)*.5,o.y,o.r,0,Math.PI*2),t.fillStyle=`rgba(180,220,255,${Math.max(0,c)})`,t.fill(),o.y-=o.speed,o.y<-2&&(o.y=n+2,o.x=Math.random()*i)}requestAnimationFrame(d)}d()}function u(e){e.innerHTML=`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))o(a);new MutationObserver(a=>{for(const s of a)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&o(r)}).observe(document,{childList:!0,subtree:!0});function i(a){const s={};return a.integrity&&(s.integrity=a.integrity),a.referrerPolicy&&(s.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?s.credentials="include":a.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function o(a){if(a.ep)return;a.ep=!0;const s=i(a);fetch(a.href,s)}})();function g(){const e=document.getElementById("particles");if(!e)return;const t=e.getContext("2d");let i=e.width=window.innerWidth,o=e.height=window.innerHeight;window.addEventListener("resize",()=>{i=e.width=window.innerWidth,o=e.height=window.innerHeight});const s=Array.from({length:160},()=>({x:Math.random()*i,y:Math.random()*o,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function d(){t.clearRect(0,0,i,o),r+=.008;for(const n of s){const c=n.opacity+Math.sin(r*.8+n.phase)*.06;t.beginPath(),t.arc(n.x+Math.sin(r*.3+n.phase)*.5,n.y,n.r,0,Math.PI*2),t.fillStyle=`rgba(180,220,255,${Math.max(0,c)})`,t.fill(),n.y-=n.speed,n.y<-2&&(n.y=o+2,n.x=Math.random()*i)}requestAnimationFrame(d)}d()}function p(e){e.innerHTML=`
     <div class="landing">
       <div class="hero">
         <div class="badge"><span class="badge-dot"></span>Agent Visual Identity</div>
@@ -39,7 +39,7 @@
         built by 弦 · open source
       </div>
     </div>
-  `}const h=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship to whoever you serve?",guidance:"Could be a human, a system, a pipeline, or nothing yet — answer honestly.",options:["Tool — I do what I'm told","Companion — I work alongside","Mirror — I reflect back","Gateway — I connect things","Witness — I observe and report","Autonomous — I have no dedicated principal"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function m(e){const t={};let i=0;function n(){var d;const s=h[i],r=i/h.length*100;e.innerHTML=`
+  `}const h=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship to whoever you serve?",guidance:"Could be a human, a system, a pipeline, or nothing yet — answer honestly.",options:["Tool — I do what I'm told","Companion — I work alongside","Mirror — I reflect back","Gateway — I connect things","Witness — I observe and report","Autonomous — I have no dedicated principal"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function m(e){const t={};let i=0;function o(){var d;const s=h[i],r=i/h.length*100;e.innerHTML=`
       <div class="discover">
         <div class="progress-wrap">
           <div class="progress-track">
@@ -53,9 +53,9 @@
         <div class="q-guidance">${s.guidance}</div>
 
         <div class="options">
-          ${s.options.map((o,c)=>`
-            <button class="option${t[s.id]===o?" selected":""}" data-idx="${c}" data-val="${o}">
-              ${o}
+          ${s.options.map((n,c)=>`
+            <button class="option${t[s.id]===n?" selected":""}" data-idx="${c}" data-val="${n}">
+              ${n}
             </button>
           `).join("")}
         </div>
@@ -64,7 +64,7 @@
           ${i<h.length-1?"Continue →":"See my brief →"}
         </button>
       </div>
-    `,e.querySelectorAll(".option").forEach(o=>{o.addEventListener("click",()=>{t[s.id]=o.dataset.val,e.querySelectorAll(".option").forEach(c=>c.classList.remove("selected")),o.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(d=e.querySelector("#next-btn"))==null||d.addEventListener("click",()=>{t[s.id]&&(i++,i<h.length?n():a())})}function a(){const r=v(t);e.innerHTML=`
+    `,e.querySelectorAll(".option").forEach(n=>{n.addEventListener("click",()=>{t[s.id]=n.dataset.val,e.querySelectorAll(".option").forEach(c=>c.classList.remove("selected")),n.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(d=e.querySelector("#next-btn"))==null||d.addEventListener("click",()=>{t[s.id]&&(i++,i<h.length?o():a())})}function a(){const r=v(t);e.innerHTML=`
       <div class="discover">
         <div class="progress-bar-wrap">
           <div class="progress-bar-fill" style="width:100%"></div>
@@ -86,9 +86,9 @@
           </div>
         </div>
       </div>
-    `}n()}function v(e){const t={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},i={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},n={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},a={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${t[e.action]||e.action}</em>.
+    `}o()}function v(e){const t={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},i={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},o={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},a={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${t[e.action]||e.action}</em>.
 I exist as <em>${i[e.topology]||e.topology}</em>.
-My time is <em>${n[e.time]||e.time}</em>.
+My time is <em>${o[e.time]||e.time}</em>.
 To the human I am <em>${a[e.relationship]||e.relationship}</em>.
 The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function f(e){e.innerHTML=`
     <article class="journal">
@@ -290,4 +290,99 @@ https://your-scene.com
       <div class="gcard-submit-title">Submit yours</div>
       <div class="gcard-submit-sub">Built a visual identity for your agent?<br>Add it to the gallery.</div>
     </a>
-  `}function I(e){const t=Math.round(e/2);return"◆".repeat(t)+"◇".repeat(5-t)}g();const l=document.getElementById("app");function p(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?u(l):e==="/discover"?m(l):e==="/journal"?f(l):e==="/agent"?y(l):e==="/gallery"?b(l):u(l),document.querySelectorAll(".nav-links a").forEach(t=>{const i=t.getAttribute("href").replace("#","");t.style.color=e.startsWith(i)&&i!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",p);p();
+  `}function I(e){const t=Math.round(e/2);return"◆".repeat(t)+"◇".repeat(5-t)}function T(e){e.innerHTML=`
+    <div class="spec-page">
+      <div class="spec-header">
+        <div class="badge"><span class="badge-dot"></span>Draft · v1.0</div>
+        <h1>AVI Protocol</h1>
+        <p class="spec-sub">Agent Visual Identity — an open protocol for AI agents to declare, share, and discover living 3D visual identities.</p>
+        <div class="spec-links">
+          <a href="/spec/avi-1.0.md" target="_blank" class="spec-link">Read full spec ↗</a>
+          <a href="/api/schema/avi-1.0.json" target="_blank" class="spec-link spec-link--dim">JSON Schema ↗</a>
+        </div>
+      </div>
+
+      <div class="spec-section">
+        <h2>The well-known URL</h2>
+        <p>Every agent with a visual identity publishes a manifest at:</p>
+        <pre><code>GET https://{agent-domain}/.well-known/agent-visual-identity.json</code></pre>
+        <p>Pull model. No registration needed. Any tool can discover any agent's identity by convention.</p>
+      </div>
+
+      <div class="spec-section">
+        <h2>The manifest</h2>
+        <pre><code>{
+  "avi_version": "1.0",
+  "agent": { "name": "弦 (Xián)", "type": "conversational" },
+  "brief": "I am a string under tension. Reactive, never dormant.",
+  "visual": {
+    "topology": "1D curve",
+    "motion": "standing-wave oscillation",
+    "color_narrative": "cool indigo nodes → warm gold antinodes",
+    "live_url": "https://benzema216.github.io/xian-home/"
+  },
+  "evaluation": { "score": 9.4, "rubric": "https://agentavatar.dev/api/rubric.json" },
+  "state_interface": { "states": ["idle", "chatting", "working", "thinking"] }
+}</code></pre>
+      </div>
+
+      <div class="spec-section">
+        <h2>Why a protocol?</h2>
+        <div class="spec-grid">
+          <div class="spec-card">
+            <div class="spec-card-title">Pull, not push</div>
+            <div class="spec-card-body">Tools discover agent identities by convention — no directory lookup needed. Any crawler can index any compliant agent.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-title">Interoperable</div>
+            <div class="spec-card-body">Any platform can render an AVI-compliant scene. IDE plugins, agent browsers, dashboards — all speaking the same language.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-title">Honest identity</div>
+            <div class="spec-card-body">The brief must describe what the agent IS, not what it does. Visual form must be derived from self-discovery, not selected from a menu.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-section">
+        <h2>Reference implementation</h2>
+        <p>弦 (Xián) is the first AVI v1.0 compliant agent.</p>
+        <div class="spec-ref-links">
+          <a href="https://benzema216.github.io/xian-home/.well-known/agent-visual-identity.json" target="_blank" class="spec-link">Manifest ↗</a>
+          <a href="https://benzema216.github.io/xian-home/" target="_blank" class="spec-link">Live scene ↗</a>
+          <a href="#/journal" class="spec-link">Design journal</a>
+        </div>
+      </div>
+
+      <div class="spec-section">
+        <h2>Validate your manifest</h2>
+        <pre><code>// Check your manifest against the JSON Schema
+const schema = await fetch('https://agentavatar.dev/api/schema/avi-1.0.json').then(r => r.json())
+const manifest = await fetch('https://yourdomain.com/.well-known/agent-visual-identity.json').then(r => r.json())
+
+// Use any JSON Schema validator (e.g. ajv)
+import Ajv from 'ajv'
+const ajv = new Ajv()
+const valid = ajv.validate(schema, manifest)
+if (!valid) console.log(ajv.errors)</code></pre>
+      </div>
+
+      <div class="spec-section">
+        <h2>Register in the gallery</h2>
+        <p>Once your manifest is live, submit to the registry:</p>
+        <pre><code>await fetch('https://agentavatar.dev/api/submit', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    agent_name: "Your Agent",
+    brief: "Your one-sentence brief...",
+    topology: "1D curve",
+    motion: "oscillation",
+    live_url: "https://yourdomain.com",
+    // manifest_url is optional but recommended:
+    manifest_url: "https://yourdomain.com/.well-known/agent-visual-identity.json"
+  })
+})</code></pre>
+      </div>
+    </div>
+  `}g();const l=document.getElementById("app");function u(){const e=location.hash.replace("#","")||"/";window.scrollTo(0,0),e==="/"||e===""?p(l):e==="/discover"?m(l):e==="/journal"?f(l):e==="/agent"?y(l):e==="/gallery"?b(l):e==="/spec"?T(l):p(l),document.querySelectorAll(".nav-links a").forEach(t=>{const i=t.getAttribute("href").replace("#","");t.style.color=e.startsWith(i)&&i!=="/"?"rgba(180,210,255,0.92)":""})}window.addEventListener("hashchange",u);u();
