@@ -1,18 +1,18 @@
 {
   "version": "1.0",
   "description": "Reference implementations of agent visual identities",
-  "note": "Submit your own at https://github.com/BENZEMA216/agent-form",
+  "note": "Submit your own via POST /api/submit",
   "examples": [
     {
       "id": "string-wave",
       "name": "弦 (Xián) — String Wave",
       "agent_type": "Conversational assistant",
       "discovery_answers": {
-        "action": "Responding to input",
+        "action": "Generating and weaving",
         "topology": "One focused point",
         "time": "Reactive — dormant until activated",
-        "relationship": "Companion",
-        "negation": "Rigid static logo, Cold clinical network graph"
+        "relationship": "Companion — I work alongside",
+        "negation": "Rigid static logo"
       },
       "brief": "I am a string under tension. Reactive, never dormant. One thing, not distributed.",
       "visual_spec": "A single curve embedded in 3D space. Moves by standing wave oscillation — multiple detuned harmonics ensure it never goes flat. Color means energy: deep indigo at quiet nodes, warm gold at vibrating antinodes.",
@@ -30,6 +30,64 @@
       "live_url": "https://benzema216.github.io/xian-home/",
       "source_url": "https://github.com/BENZEMA216/xian-home",
       "journal_url": "https://agentavatar.dev/#/journal"
+    },
+    {
+      "id": "particle-drift",
+      "name": "Drift — Ambient Search Agent",
+      "agent_type": "RAG / knowledge retrieval",
+      "discovery_answers": {
+        "action": "Searching and retrieving",
+        "topology": "Everywhere, diffuse",
+        "time": "Continuous — always running",
+        "relationship": "Witness — I observe and report",
+        "negation": "Aggressive sharp geometry"
+      },
+      "brief": "I am a diffuse field of awareness. Continuous, everywhere at once. Color means signal: cool background hum, warm when something surfaces.",
+      "visual_spec": "A particle cloud in constant slow drift. Particles are dim and spread when nothing is found; they cluster and brighten — amber to white — when a relevant result emerges. No fixed center. No edges. The density IS the signal.",
+      "topology": "diffuse volume",
+      "motion": "drift with attraction-to-result",
+      "color_narrative": "signal-driven: cool dim ambient → warm bright cluster on match",
+      "patterns_used": ["particle-cloud", "billboard-sprite"],
+      "final_score": 7.6,
+      "key_lessons": [
+        "Use THREE.Points with per-vertex color — not individual meshes",
+        "Signal clustering: lerp particle positions toward a center when result found, release slowly",
+        "Bloom threshold matters: set high (0.4+) so ambient particles don't glow, only peaks do",
+        "No fixed topology is the point — resist the urge to add a frame or container"
+      ],
+      "live_url": null,
+      "source_url": null,
+      "journal_url": null,
+      "status": "brief-complete · implementation pending"
+    },
+    {
+      "id": "chain-trace",
+      "name": "Trace — Reasoning / Planning Agent",
+      "agent_type": "Task planner / step-by-step reasoner",
+      "discovery_answers": {
+        "action": "Reasoning step by step",
+        "topology": "A path or trajectory",
+        "time": "Event-driven — bursts then quiet",
+        "relationship": "Gateway — I connect things",
+        "negation": "Symmetric and orderly"
+      },
+      "brief": "I am a chain that lights up one link at a time. Sequential, event-driven. Color means progress: cold at the start, warm when a step resolves.",
+      "visual_spec": "A CatmullRom curve through 6–9 control points, not symmetric. Each node pulses in sequence — a travelling bright spot. Inactive nodes glow faintly; the active node blooms warm gold. Between activations: stillness.",
+      "topology": "1D path, irregular",
+      "motion": "sequential node activation — burst then quiet",
+      "color_narrative": "progress-driven: cold blue start → warm gold at active step → dim after completion",
+      "patterns_used": ["continuous-curve", "node-network", "billboard-sprite"],
+      "final_score": 7.2,
+      "key_lessons": [
+        "Irregular control point spacing feels more alive than equal spacing",
+        "The pause between activations is the identity — resist making it always-on",
+        "Active node bloom: UnrealBloom threshold 0.15 so only the active node glows",
+        "Use additive blending on the active sprite — it needs to feel genuinely bright"
+      ],
+      "live_url": null,
+      "source_url": null,
+      "journal_url": null,
+      "status": "brief-complete · implementation pending"
     }
   ]
 }
