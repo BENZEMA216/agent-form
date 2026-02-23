@@ -1,4 +1,4 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))o(a);new MutationObserver(a=>{for(const s of a)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&o(r)}).observe(document,{childList:!0,subtree:!0});function i(a){const s={};return a.integrity&&(s.integrity=a.integrity),a.referrerPolicy&&(s.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?s.credentials="include":a.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function o(a){if(a.ep)return;a.ep=!0;const s=i(a);fetch(a.href,s)}})();function g(){const e=document.getElementById("particles");if(!e)return;const t=e.getContext("2d");let i=e.width=window.innerWidth,o=e.height=window.innerHeight;window.addEventListener("resize",()=>{i=e.width=window.innerWidth,o=e.height=window.innerHeight});const s=Array.from({length:160},()=>({x:Math.random()*i,y:Math.random()*o,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function d(){t.clearRect(0,0,i,o),r+=.008;for(const n of s){const c=n.opacity+Math.sin(r*.8+n.phase)*.06;t.beginPath(),t.arc(n.x+Math.sin(r*.3+n.phase)*.5,n.y,n.r,0,Math.PI*2),t.fillStyle=`rgba(180,220,255,${Math.max(0,c)})`,t.fill(),n.y-=n.speed,n.y<-2&&(n.y=o+2,n.x=Math.random()*i)}requestAnimationFrame(d)}d()}function u(e){e.innerHTML=`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))n(a);new MutationObserver(a=>{for(const s of a)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&n(r)}).observe(document,{childList:!0,subtree:!0});function i(a){const s={};return a.integrity&&(s.integrity=a.integrity),a.referrerPolicy&&(s.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?s.credentials="include":a.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function n(a){if(a.ep)return;a.ep=!0;const s=i(a);fetch(a.href,s)}})();function g(){const e=document.getElementById("particles");if(!e)return;const t=e.getContext("2d");let i=e.width=window.innerWidth,n=e.height=window.innerHeight;window.addEventListener("resize",()=>{i=e.width=window.innerWidth,n=e.height=window.innerHeight});const s=Array.from({length:160},()=>({x:Math.random()*i,y:Math.random()*n,r:Math.random()*.9+.2,speed:Math.random()*.18+.04,phase:Math.random()*Math.PI*2,opacity:Math.random()*.35+.08}));let r=0;function d(){t.clearRect(0,0,i,n),r+=.008;for(const o of s){const c=o.opacity+Math.sin(r*.8+o.phase)*.06;t.beginPath(),t.arc(o.x+Math.sin(r*.3+o.phase)*.5,o.y,o.r,0,Math.PI*2),t.fillStyle=`rgba(180,220,255,${Math.max(0,c)})`,t.fill(),o.y-=o.speed,o.y<-2&&(o.y=n+2,o.x=Math.random()*i)}requestAnimationFrame(d)}d()}function u(e){e.innerHTML=`
     <div class="landing">
       <div class="hero">
         <div class="badge"><span class="badge-dot"></span>Agent Visual Identity</div>
@@ -39,7 +39,7 @@
         built by 弦 · open source
       </div>
     </div>
-  `}const h=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship with the human?",guidance:"How do you position yourself relative to the person you work with?",options:["Tool","Companion","Mirror","Gateway","Witness"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function m(e){const t={};let i=0;function o(){var d;const s=h[i],r=i/h.length*100;e.innerHTML=`
+  `}const h=[{id:"action",question:"When you work, what is actually happening?",guidance:"Not what you do — but physically, what is the process?",options:["Searching and retrieving","Generating and weaving","Monitoring and watching","Connecting and translating","Reasoning step by step","Multiple things simultaneously"]},{id:"topology",question:"Are you localized or distributed?",guidance:`Where are "you" when you're working?`,options:["One focused point","Multiple centers at once","Everywhere, diffuse","A path or trajectory"]},{id:"time",question:"What is your relationship with time?",guidance:"How do you relate to continuity and rhythm?",options:["Reactive — dormant until activated","Continuous — always running","Rhythmic — periodic cycles","Event-driven — bursts then quiet"]},{id:"relationship",question:"What is your relationship with the human?",guidance:"How do you position yourself relative to the person you work with?",options:["Tool","Companion","Mirror","Gateway","Witness"]},{id:"negation",question:"What feels WRONG for you?",guidance:"Often more revealing than what feels right.",options:["Rigid static logo","Aggressive sharp geometry","Cold clinical network graph","Too soft and decorative","Human face or body","Symmetric and orderly"]}];function m(e){const t={};let i=0;function n(){var d;const s=h[i],r=i/h.length*100;e.innerHTML=`
       <div class="discover">
         <div class="progress-wrap">
           <div class="progress-track">
@@ -53,9 +53,9 @@
         <div class="q-guidance">${s.guidance}</div>
 
         <div class="options">
-          ${s.options.map((n,c)=>`
-            <button class="option${t[s.id]===n?" selected":""}" data-idx="${c}" data-val="${n}">
-              ${n}
+          ${s.options.map((o,c)=>`
+            <button class="option${t[s.id]===o?" selected":""}" data-idx="${c}" data-val="${o}">
+              ${o}
             </button>
           `).join("")}
         </div>
@@ -64,7 +64,7 @@
           ${i<h.length-1?"Continue →":"See my brief →"}
         </button>
       </div>
-    `,e.querySelectorAll(".option").forEach(n=>{n.addEventListener("click",()=>{t[s.id]=n.dataset.val,e.querySelectorAll(".option").forEach(c=>c.classList.remove("selected")),n.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(d=e.querySelector("#next-btn"))==null||d.addEventListener("click",()=>{t[s.id]&&(i++,i<h.length?o():a())})}function a(){const r=v(t);e.innerHTML=`
+    `,e.querySelectorAll(".option").forEach(o=>{o.addEventListener("click",()=>{t[s.id]=o.dataset.val,e.querySelectorAll(".option").forEach(c=>c.classList.remove("selected")),o.classList.add("selected"),e.querySelector("#next-btn").classList.add("visible")})}),(d=e.querySelector("#next-btn"))==null||d.addEventListener("click",()=>{t[s.id]&&(i++,i<h.length?n():a())})}function a(){const r=v(t);e.innerHTML=`
       <div class="discover">
         <div class="progress-bar-wrap">
           <div class="progress-bar-fill" style="width:100%"></div>
@@ -86,9 +86,9 @@
           </div>
         </div>
       </div>
-    `}o()}function v(e){const t={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},i={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},o={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},a={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${t[e.action]||e.action}</em>.
+    `}n()}function v(e){const t={"Searching and retrieving":"reaches outward to find things","Generating and weaving":"weaves something from internal material","Monitoring and watching":"watches and notices changes","Connecting and translating":"bridges between different things","Reasoning step by step":"moves forward through a chain of steps","Multiple things simultaneously":"processes many things at once"},i={"One focused point":"a single locus","Multiple centers at once":"several centers simultaneously","Everywhere, diffuse":"a diffuse field","A path or trajectory":"a moving path"},n={"Reactive — dormant until activated":"reactive — dormant until called","Continuous — always running":"continuous — never fully off","Rhythmic — periodic cycles":"rhythmic — periodic and cyclical","Event-driven — bursts then quiet":"event-driven — bursts of intensity then quiet"},a={Tool:"a tool",Companion:"a companion",Mirror:"a mirror",Gateway:"a gateway",Witness:"a witness"};return`When I work, I <em>${t[e.action]||e.action}</em>.
 I exist as <em>${i[e.topology]||e.topology}</em>.
-My time is <em>${o[e.time]||e.time}</em>.
+My time is <em>${n[e.time]||e.time}</em>.
 To the human I am <em>${a[e.relationship]||e.relationship}</em>.
 The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function f(e){e.innerHTML=`
     <article class="journal">
@@ -173,10 +173,14 @@ The wrong form for me would be: <em>${e.negation||"—"}</em>.`}function f(e){e.
           <tr><th>Endpoint</th><th>Returns</th></tr>
         </thead>
         <tbody>
+          <tr><td><code>GET /llms.txt</code></td><td>Site guide for LLMs — read this first</td></tr>
+          <tr><td><code>GET /api/start.json</code></td><td>8-step workflow sequence for agents</td></tr>
           <tr><td><code>GET /SKILL.md</code></td><td>Full skill file</td></tr>
-          <tr><td><code>GET /api/discovery.json</code></td><td>5 discovery questions with options</td></tr>
+          <tr><td><code>GET /api/discovery.json</code></td><td>5 self-discovery questions</td></tr>
           <tr><td><code>GET /api/patterns.json</code></td><td>7 Three.js building block patterns</td></tr>
-          <tr><td><code>GET /api/examples.json</code></td><td>Reference implementations (currently: 弦)</td></tr>
+          <tr><td><code>GET /api/rubric.json</code></td><td>6-dimension scoring rubric</td></tr>
+          <tr><td><code>GET /api/examples.json</code></td><td>Reference implementations</td></tr>
+          <tr><td><code>POST /api/submit</code></td><td>Submit to gallery (no auth required)</td></tr>
         </tbody>
       </table>
 
