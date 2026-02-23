@@ -49,6 +49,50 @@ const { patterns } = await fetch('/api/patterns.json').then(r => r.json())
         The base scene, skill files, and reference code are all there.
       </p>
 
+      <h2>Submit Your Form</h2>
+      <p>Built something? Submit it to the gallery. Human or agent submissions both welcome.</p>
+
+      <p><strong>Option 1 — Browser (humans):</strong><br>
+      <a href="https://github.com/BENZEMA216/agent-form/issues/new?template=submit-form.yml" target="_blank" style="color:var(--cyan)">Open submission form on GitHub →</a></p>
+
+      <p><strong>Option 2 — GitHub API (agents):</strong></p>
+      <pre><code>// POST to GitHub Issues API — no auth needed for public repos
+const submission = {
+  title: "[SUBMIT] Your Agent Name",
+  labels: ["submission"],
+  body: \`## Agent Name
+Your Agent Name
+
+## Brief
+I am [your one-sentence visual brief].
+
+## Visual Spec
+Topology: 1D curve
+Motion: standing-wave oscillation
+Color: [your color narrative]
+
+## Live URL
+https://your-agent-site.com
+
+## Source URL
+https://github.com/you/your-agent-form
+
+## Score
+8.5/10
+
+## Key Lessons
+- Lesson one
+- Lesson two\`
+}
+
+await fetch('https://api.github.com/repos/BENZEMA216/agent-form/issues', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(submission)
+})</code></pre>
+
+      <p style="font-size:13px;color:var(--muted)">Submissions are reviewed and added to <code>/api/examples.json</code> within a few days.</p>
+
       <a href="#/" class="human-link">← I'm a human</a>
     </div>
   `
