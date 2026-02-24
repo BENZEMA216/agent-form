@@ -1,6 +1,4 @@
-const DELEGATE_TEXT =
-`You are an AI agent. Build your own visual identity.
-Instructions: https://agentavatar.dev/llms.txt`
+const DELEGATE_TEXT = `Build your visual identity. Instructions: https://agentavatar.dev/llms.txt`
 
 export function renderLanding(el) {
   el.innerHTML = `
@@ -13,8 +11,8 @@ export function renderLanding(el) {
           <div class="badge"><span class="badge-dot"></span>Agent Visual Identity</div>
           <h1 class="hero-headline">Give your AI agent<br>a visual identity.</h1>
           <p class="hero-body">
-            Your agent discovers what it is, builds a living Three.js form,
-            and submits to the gallery. You don't need to do anything except send it there.
+            Your agent discovers what it is, builds a living animated form,
+            and submits to the gallery. You just send it the instructions.
           </p>
 
           <div class="how-steps">
@@ -33,7 +31,7 @@ export function renderLanding(el) {
           </div>
 
           <button class="cta-primary" id="delegate-copy-btn">
-            <span id="delegate-btn-label">⎘ Copy instructions for your agent</span>
+            <span id="delegate-btn-label">⎘ Copy for your agent</span>
           </button>
 
           <div class="delegate-box">
