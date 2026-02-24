@@ -1207,15 +1207,15 @@ code { font-family: inherit; }
 @media (max-width: 860px) {
   .hero-split {
     grid-template-columns: 1fr;
-    gap: 28px; min-height: auto; padding: 32px 0 16px;
+    gap: 24px; min-height: auto; padding: 24px 0 12px;
   }
   .hero-canvas-wrap { order: -1; }
   #landing-canvas { max-width: 300px; }
   .hero-text { align-items: center; text-align: center; }
   .hero-body { max-width: 100%; }
-  .landing { padding: 48px 24px 48px; }
+  .landing { padding: 40px 24px 40px; }
   .how-steps { align-items: center; }
-  .landing-gallery { margin-top: 48px; }
+  .landing-gallery { margin-top: 40px; }
 }
 
 /* Phone: ≤ 520px */
@@ -1224,77 +1224,94 @@ code { font-family: inherit; }
   html, body { overflow-x: hidden; max-width: 100vw; }
   * { min-width: 0; box-sizing: border-box; }
 
-  /* Nav — hide secondary links */
+  /* Nav */
   nav { padding: 0 16px; height: 48px; }
   .protocol-link, .discover-link, .journal-link { display: none !important; }
-  .nav-links { gap: 2px; }
-  .nav-links a { padding: 5px 10px; font-size: 13px; }
+  .nav-links { gap: 4px; }
+  .nav-links a { padding: 6px 12px; font-size: 13px; }
   .logo { font-size: 13px; }
 
-  /* Landing container */
-  .landing { padding: 40px 20px 40px; max-width: 100%; }
-  .hero-split, .hero-text { max-width: 100%; width: 100%; overflow: hidden; }
+  /* Landing: tighter top — nav is 48px, don't double-pad */
+  .landing { padding: 24px 20px 32px; max-width: 100%; }
 
-  /* Hero headline — must not overflow */
+  /* Hero: text first, canvas below and small */
+  .hero-split {
+    gap: 20px; padding: 16px 0 8px;
+  }
+  .hero-canvas-wrap {
+    order: 1 !important;   /* push canvas BELOW text on mobile */
+  }
+  #landing-canvas { max-width: min(160px, 55vw) !important; }
+  .hero-canvas-glow { display: none; }       /* no glow overhead */
+  .hero-canvas-caption { display: none; }    /* too small to read */
+
+  /* Hero text */
+  .hero-text { gap: 12px !important; }
   .hero-headline {
     font-size: clamp(26px, 7vw, 34px) !important;
     letter-spacing: -0.025em !important;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    width: 100%; max-width: 100%;
+    overflow-wrap: break-word; width: 100%;
   }
   .hero-body {
     font-size: 14px !important; line-height: 1.65;
     overflow-wrap: break-word; max-width: 100%;
+    margin-bottom: 16px !important;
   }
 
   /* Badge */
   .badge {
-    font-size: 10px !important; letter-spacing: 0.07em !important;
-    padding: 4px 10px !important; max-width: 100%;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-size: 10px !important; letter-spacing: 0.06em !important;
+    padding: 4px 10px !important;
   }
 
-  /* Canvas */
-  #landing-canvas { max-width: min(240px, 75vw) !important; }
-
-  /* How steps */
-  .how-steps { gap: 8px; width: 100%; }
+  /* Steps */
+  .how-steps { gap: 8px; width: 100%; margin-bottom: 4px !important; }
   .how-text { font-size: 13px; overflow-wrap: break-word; }
 
   /* CTA */
   .cta-primary {
     width: 100% !important; justify-content: center;
     padding: 12px 16px !important; font-size: 13px !important;
-    box-sizing: border-box;
   }
 
-  /* Delegate box */
+  /* Delegate box — keep URL on one line or break cleanly */
   .delegate-box { padding: 12px 14px; max-width: 100%; }
   .delegate-text {
-    font-size: 11px !important; line-height: 1.65;
-    white-space: pre-wrap !important;
-    word-break: break-all;
-    overflow-wrap: anywhere;
+    font-size: 11px !important; line-height: 1.7;
+    white-space: normal !important;          /* allow natural wrapping */
+    overflow-wrap: break-word;               /* break long URLs at edge only */
+    word-break: normal;
   }
 
   .hero-cta-secondary { font-size: 13px; max-width: 100%; text-align: center; }
-  .landing-gallery { padding: 0; width: 100%; }
+
+  /* Landing gallery */
+  .landing-gallery { padding: 0; width: 100%; margin-top: 28px !important; }
+
+  /* Footer — vertical stack */
+  .landing-footer {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important; text-align: center;
+    font-size: 11px !important;
+    margin-top: 28px !important;
+  }
+  .landing-footer::before,
+  .landing-footer::after { display: none !important; }
 
   /* Gallery page */
-  .gallery-page { padding: 40px 16px 80px !important; }
-  .gallery-header { margin-bottom: 28px; }
+  .gallery-page { padding: 36px 16px 72px !important; }
+  .gallery-header { margin-bottom: 24px; }
   .gallery-header h1 { font-size: 26px !important; }
-  .gallery-sub { font-size: 14px !important; }
-  .gallery-grid { gap: 14px !important; }
-  .gcard-name { font-size: 14px !important; }
+  .gallery-sub { font-size: 13px !important; }
+  .gallery-grid { gap: 12px !important; }
 
   /* Inner pages */
   .discover, .journal, .agent-page,
   .spec-page { padding-left: 16px !important; padding-right: 16px !important; }
 
   /* Terminal */
-  .agent-terminal { padding: 40px 0; }
+  .agent-terminal { padding: 36px 0; }
   .term-header, .term-body { margin: 0 12px !important; }
-  .term-body { padding: 18px 16px !important; font-size: 12px !important; }
+  .term-body { padding: 16px 14px !important; font-size: 12px !important; }
 }
