@@ -350,7 +350,7 @@ The wrong form for me would be: <em>${t.neg}</em>.`}function z(e){const t=M(e);r
         ${Z()}
       </div>
     </div>
-  `,t.forEach(n=>{if(n.form_type==="canvas2d"&&n.draw_fn){const s=e.querySelector(`#preview-${n.id}`);s&&U(s,n.draw_fn)}})}function X(e){return e.form_type&&(e.draw_fn||e.source_html||e.live_url)}function Q(e){return e.form_type==="canvas2d"&&e.draw_fn?`<canvas class="gcard-canvas" id="preview-${e.id}" width="340" height="150"></canvas>`:e.form_type==="html"&&e.source_html?`<iframe class="gcard-iframe" srcdoc="${e.source_html.replace(/"/g,"&quot;")}" sandbox="allow-scripts"></iframe>`:(e.form_type==="url"||e.form_type==="html")&&e.live_url?`<iframe class="gcard-iframe" src="${e.live_url}" sandbox="allow-scripts allow-same-origin"></iframe>`:""}function K(e){const t=ee(e.final_score),n=X(e);return`
+  `,t.forEach(n=>{if(n.form_type==="canvas2d"&&n.draw_fn){const s=e.querySelector(`#preview-${n.id}`);s&&U(s,n.draw_fn)}})}function X(e){return e.form_type&&(e.draw_fn||e.source_html||e.live_url)}function Q(e){return e.form_type==="canvas2d"&&e.draw_fn?`<canvas class="gcard-canvas" id="preview-${e.id}" width="340" height="220"></canvas>`:e.form_type==="html"&&e.source_html?`<iframe class="gcard-iframe" srcdoc="${e.source_html.replace(/"/g,"&quot;")}" sandbox="allow-scripts"></iframe>`:(e.form_type==="url"||e.form_type==="html")&&e.live_url?`<iframe class="gcard-iframe" src="${e.live_url}" sandbox="allow-scripts allow-same-origin"></iframe>`:""}function K(e){const t=ee(e.final_score),n=X(e);return`
     <div class="gcard ${n?"":"gcard--pending"}">
       ${n?Q(e):""}
 

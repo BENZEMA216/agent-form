@@ -44,7 +44,7 @@ function hasForm(e) {
 
 function renderFormArea(e) {
   if (e.form_type === 'canvas2d' && e.draw_fn) {
-    return `<canvas class="gcard-canvas" id="preview-${e.id}" width="340" height="150"></canvas>`
+    return `<canvas class="gcard-canvas" id="preview-${e.id}" width="340" height="220"></canvas>`
   }
   if (e.form_type === 'html' && e.source_html) {
     const escaped = e.source_html.replace(/"/g, '&quot;')
