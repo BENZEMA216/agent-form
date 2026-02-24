@@ -1,18 +1,18 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:          #050311;
-  --bg2:         #0a0720;
+  --bg:          #09090b;
+  --bg2:         #111116;
   --cyan:        #22d3ee;
   --cyan-dim:    rgba(34, 211, 238, 0.60);
   --cyan-muted:  rgba(34, 211, 238, 0.50);
-  --cyan-subtle: rgba(34, 211, 238, 0.22);
+  --cyan-subtle: rgba(34, 211, 238, 0.18);
   --amber:       #f59e0b;
   --amber-dim:   rgba(245, 158, 11, 0.60);
-  --text:        rgba(226, 232, 240, 0.92);
-  --text-sub:    rgba(148, 163, 184, 0.70);
-  --border:      rgba(255, 255, 255, 0.06);
-  --border-hi:   rgba(255, 255, 255, 0.12);
+  --text:        rgba(250, 250, 252, 0.96);
+  --text-sub:    rgba(175, 185, 200, 0.72);
+  --border:      rgba(255, 255, 255, 0.08);
+  --border-hi:   rgba(255, 255, 255, 0.18);
 }
 
 html, body {
@@ -24,12 +24,12 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* bg radial glow */
+/* bg radial glow — minimal, top-center only */
 body::before {
   content: '';
-  position: fixed; top: -20%; left: 50%; transform: translateX(-50%);
-  width: 900px; height: 600px;
-  background: radial-gradient(ellipse at center, rgba(34,211,238,0.055) 0%, transparent 70%);
+  position: fixed; top: -30%; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse at center, rgba(34,211,238,0.035) 0%, transparent 65%);
   pointer-events: none; z-index: 0;
 }
 
@@ -45,9 +45,9 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 32px; height: 52px;
-  background: rgba(5, 3, 17, 0.80);
-  backdrop-filter: blur(20px) saturate(1.4);
-  border-bottom: 1px solid var(--border);
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(24px) saturate(1.2);
+  border-bottom: 1px solid rgba(255,255,255,0.09);
 }
 
 .logo {
@@ -169,15 +169,15 @@ main {
 .badge {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 4px 12px; border-radius: 20px;
-  background: rgba(34, 211, 238, 0.05);
-  border: 1px solid var(--cyan-subtle);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   font-size: 11px; font-weight: 500; letter-spacing: 0.10em;
-  text-transform: uppercase; color: var(--cyan-muted);
+  text-transform: uppercase; color: rgba(200, 210, 224, 0.70);
   margin-bottom: 28px;
 }
 .badge-dot {
   width: 5px; height: 5px; border-radius: 50%;
-  background: var(--cyan-muted);
+  background: rgba(34, 211, 238, 0.70);
   animation: dot-pulse 2.5s ease-in-out infinite;
 }
 @keyframes dot-pulse {
@@ -652,90 +652,7 @@ code { font-family: inherit; }
   .landing-gallery { margin-top: 48px; }
 }
 
-/* ── Mobile (≤ 520px) — iPhone SE to iPhone 15 ── */
-@media (max-width: 520px) {
-  /* Prevent any element from widening the page */
-  html, body { overflow-x: hidden; max-width: 100vw; }
-  * { min-width: 0; }
-
-  /* Nav: hide secondary links, keep Gallery + For Agents */
-  nav { padding: 0 16px; height: 48px; }
-  .protocol-link, .discover-link, .journal-link { display: none !important; }
-  .nav-links { gap: 2px; }
-  .nav-links a { padding: 5px 10px; font-size: 13px; }
-  .logo { font-size: 13px; }
-
-  /* Landing container */
-  .landing { padding: 40px 20px 40px; max-width: 100%; }
-  .hero-split { max-width: 100%; }
-  .hero-text { max-width: 100%; width: 100%; }
-
-  /* Hero headline — smaller, always wraps */
-  .hero-headline {
-    font-size: clamp(28px, 7.5vw, 36px);
-    letter-spacing: -0.025em;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    max-width: 100%;
-  }
-  .hero-body {
-    font-size: 14px; line-height: 1.7; max-width: 100%;
-    overflow-wrap: break-word;
-  }
-
-  /* Badge — constrain width */
-  .badge {
-    font-size: 10px; letter-spacing: 0.07em; padding: 4px 10px;
-    max-width: calc(100vw - 40px); overflow: hidden;
-    white-space: nowrap; text-overflow: ellipsis;
-  }
-
-  /* Canvas */
-  #landing-canvas { max-width: min(240px, 80vw); }
-
-  /* Steps */
-  .how-steps { gap: 8px; width: 100%; }
-  .how-step { max-width: 100%; }
-  .how-text { font-size: 13px; overflow-wrap: break-word; }
-
-  /* CTA button */
-  .cta-primary {
-    padding: 12px 20px; font-size: 13px;
-    width: 100%; justify-content: center; box-sizing: border-box;
-  }
-
-  /* Delegate box — wrap long URL */
-  .delegate-box { padding: 12px 14px; max-width: 100%; }
-  .delegate-text {
-    font-size: 11px; line-height: 1.7;
-    white-space: pre-wrap;
-    word-break: break-all;
-    overflow-wrap: anywhere;
-  }
-
-  /* Secondary link */
-  .hero-cta-secondary { font-size: 13px; max-width: 100%; text-align: center; }
-
-  /* Landing gallery preview */
-  .landing-gallery { padding: 0; width: 100%; }
-
-  /* Gallery page */
-  .gallery-page { padding: 40px 16px 80px; }
-  .gallery-header { margin-bottom: 28px; }
-  .gallery-header h1 { font-size: 28px; }
-  .gallery-sub { font-size: 14px; }
-  .gallery-grid { gap: 14px; }
-  .gcard-name { font-size: 14px; }
-
-  /* All inner pages */
-  .discover, .journal, .agent-page,
-  .spec-page, .gallery-page { padding-left: 16px; padding-right: 16px; }
-
-  /* Terminal */
-  .agent-terminal { padding: 40px 0; }
-  .term-header, .term-body { margin: 0 12px; }
-  .term-body { padding: 18px 16px; font-size: 12px; }
-}
+/* [mobile block moved to end of file] */
 
 /* ── Gallery ── */
 .gallery-page {
@@ -769,18 +686,19 @@ code { font-family: inherit; }
 
 /* Gallery card — each form exists in its own dark space */
 .gcard {
-  background: rgba(255,255,255,0.018);
-  border: 1px solid rgba(255,255,255,0.04);
-  border-radius: 16px; padding: 0;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px; padding: 0;
   display: flex; flex-direction: column;
   overflow: hidden;
-  transition: border-color 0.35s, transform 0.25s, box-shadow 0.35s;
+  transition: border-color 0.30s, transform 0.22s, box-shadow 0.30s;
   cursor: default;
+  backdrop-filter: blur(2px);
 }
 .gcard:hover {
-  border-color: rgba(255,255,255,0.09);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.08) inset;
 }
 
 /* Form area — the form IS the card */
@@ -924,9 +842,9 @@ code { font-family: inherit; }
 
 /* ── Landing hero updates ── */
 .hero-headline {
-  font-size: clamp(30px, 5.5vw, 48px);
-  font-weight: 600; letter-spacing: -0.03em; line-height: 1.15;
-  color: rgba(226,232,240,0.97);
+  font-size: clamp(32px, 5.5vw, 52px);
+  font-weight: 700; letter-spacing: -0.04em; line-height: 1.10;
+  color: rgba(255,255,255,0.98);
   margin-bottom: 18px;
 }
 
@@ -983,15 +901,15 @@ code { font-family: inherit; }
 /* ── Delegate box ── */
 .delegate-box {
   width: 100%;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border-hi);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.14);
   border-radius: 10px;
   padding: 14px 18px;
 }
 .delegate-text {
   font-family: "SF Mono", "Fira Code", monospace;
   font-size: 12px; line-height: 1.8;
-  color: rgba(203,213,225,0.65);
+  color: rgba(220, 230, 242, 0.72);
   white-space: pre;
   user-select: all;
 }
@@ -1011,18 +929,19 @@ code { font-family: inherit; }
 .cta-primary {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 28px;
-  background: rgba(34,211,238,0.12);
-  border: 1px solid rgba(34,211,238,0.30);
-  color: var(--cyan); border-radius: 8px;
+  background: rgba(34,211,238,0.10);
+  border: 1px solid rgba(34,211,238,0.35);
+  color: var(--cyan); border-radius: 9px;
   font-size: 14px; font-weight: 600; letter-spacing: 0.01em;
   font-family: inherit; cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   margin: 20px 0 12px;
 }
 .cta-primary:hover {
-  background: rgba(34,211,238,0.18);
-  border-color: rgba(34,211,238,0.50);
-  box-shadow: 0 0 20px rgba(34,211,238,0.18);
+  background: rgba(34,211,238,0.16);
+  border-color: rgba(34,211,238,0.55);
+  box-shadow: 0 0 28px rgba(34,211,238,0.18);
+  transform: translateY(-1px);
 }
 .cta-primary:active { opacity: 0.85; }
 
@@ -1073,13 +992,14 @@ code { font-family: inherit; }
 
 .lgcard {
   padding: 18px 20px;
-  background: rgba(255,255,255,0.018);
-  border: 1px solid rgba(255,255,255,0.04);
-  border-radius: 12px; text-decoration: none;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; text-decoration: none;
   display: flex; flex-direction: column; gap: 7px;
-  transition: border-color 0.3s, transform 0.25s;
+  transition: border-color 0.25s, transform 0.22s, box-shadow 0.25s;
+  backdrop-filter: blur(2px);
 }
-.lgcard:hover { border-color: rgba(255,255,255,0.09); transform: translateY(-2px); }
+.lgcard:hover { border-color: rgba(255,255,255,0.20); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.50); }
 
 .lgcard-name {
   font-size: 15px; font-weight: 600;
@@ -1277,3 +1197,104 @@ code { font-family: inherit; }
 .spec-card-body  { font-size: 13px; color: var(--text-sub); line-height: 1.65; }
 
 .spec-ref-links { display: flex; gap: 10px; flex-wrap: wrap; }
+
+
+/* ══════════════════════════════════════════════════
+   MOBILE — placed last to ensure cascade priority
+   ══════════════════════════════════════════════════ */
+
+/* Tablet: collapse hero split */
+@media (max-width: 860px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 28px; min-height: auto; padding: 32px 0 16px;
+  }
+  .hero-canvas-wrap { order: -1; }
+  #landing-canvas { max-width: 300px; }
+  .hero-text { align-items: center; text-align: center; }
+  .hero-body { max-width: 100%; }
+  .landing { padding: 48px 24px 48px; }
+  .how-steps { align-items: center; }
+  .landing-gallery { margin-top: 48px; }
+}
+
+/* Phone: ≤ 520px */
+@media (max-width: 520px) {
+  /* No horizontal overflow ever */
+  html, body { overflow-x: hidden; max-width: 100vw; }
+  * { min-width: 0; box-sizing: border-box; }
+
+  /* Nav — hide secondary links */
+  nav { padding: 0 16px; height: 48px; }
+  .protocol-link, .discover-link, .journal-link { display: none !important; }
+  .nav-links { gap: 2px; }
+  .nav-links a { padding: 5px 10px; font-size: 13px; }
+  .logo { font-size: 13px; }
+
+  /* Landing container */
+  .landing { padding: 40px 20px 40px; max-width: 100%; }
+  .hero-split, .hero-text { max-width: 100%; width: 100%; overflow: hidden; }
+
+  /* Hero headline — must not overflow */
+  .hero-headline {
+    font-size: clamp(26px, 7vw, 34px) !important;
+    letter-spacing: -0.025em !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    width: 100%; max-width: 100%;
+  }
+  .hero-body {
+    font-size: 14px !important; line-height: 1.65;
+    overflow-wrap: break-word; max-width: 100%;
+  }
+
+  /* Badge */
+  .badge {
+    font-size: 10px !important; letter-spacing: 0.07em !important;
+    padding: 4px 10px !important; max-width: 100%;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  /* Canvas */
+  #landing-canvas { max-width: min(240px, 75vw) !important; }
+
+  /* How steps */
+  .how-steps { gap: 8px; width: 100%; }
+  .how-text { font-size: 13px; overflow-wrap: break-word; }
+
+  /* CTA */
+  .cta-primary {
+    width: 100% !important; justify-content: center;
+    padding: 12px 16px !important; font-size: 13px !important;
+    box-sizing: border-box;
+  }
+
+  /* Delegate box */
+  .delegate-box { padding: 12px 14px; max-width: 100%; }
+  .delegate-text {
+    font-size: 11px !important; line-height: 1.65;
+    white-space: pre-wrap !important;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-cta-secondary { font-size: 13px; max-width: 100%; text-align: center; }
+  .landing-gallery { padding: 0; width: 100%; }
+
+  /* Gallery page */
+  .gallery-page { padding: 40px 16px 80px !important; }
+  .gallery-header { margin-bottom: 28px; }
+  .gallery-header h1 { font-size: 26px !important; }
+  .gallery-sub { font-size: 14px !important; }
+  .gallery-grid { gap: 14px !important; }
+  .gcard-name { font-size: 14px !important; }
+
+  /* Inner pages */
+  .discover, .journal, .agent-page,
+  .spec-page { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Terminal */
+  .agent-terminal { padding: 40px 0; }
+  .term-header, .term-body { margin: 0 12px !important; }
+  .term-body { padding: 18px 16px !important; font-size: 12px !important; }
+}
