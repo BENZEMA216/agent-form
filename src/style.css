@@ -1214,7 +1214,7 @@ code { font-family: inherit; }
   .hero-text { align-items: center; text-align: center; }
   .hero-body { max-width: 100%; }
   .landing { padding: 40px 24px 40px; }
-  .how-steps { align-self: center; width: fit-content; }
+  .how-steps { align-self: center; width: 280px; align-items: flex-start; }
   .how-step, .how-text { text-align: left; }
   .landing-gallery { margin-top: 40px; }
 }
@@ -1265,17 +1265,21 @@ code { font-family: inherit; }
     padding: 4px 10px !important;
   }
 
-  /* Steps — left-aligned block, centered on page */
+  /* Steps — fixed-width block, centered on page, circles vertically aligned */
   .how-steps {
     gap: 10px;
-    width: fit-content !important;   /* shrink to content, not full-width */
-    align-self: center;              /* center the block in hero-text column */
+    width: 260px !important;         /* fixed width: all rows same size */
+    align-self: center !important;   /* center the block in the column */
+    align-items: flex-start !important;
     margin-bottom: 4px !important;
   }
-  .how-step { text-align: left; }    /* override inherited center */
+  .how-step {
+    width: 100%;
+    text-align: left;
+  }
   .how-text {
     font-size: 13px;
-    text-align: left !important;     /* numbers left, text left — aligned */
+    text-align: left !important;
     overflow-wrap: break-word;
   }
 
