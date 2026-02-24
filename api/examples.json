@@ -19,7 +19,11 @@
       "topology": "1D curve",
       "motion": "standing-wave oscillation",
       "color_narrative": "energy-driven: cool indigo nodes → warm gold antinodes",
-      "patterns_used": ["continuous-curve", "standing-wave", "billboard-sprite"],
+      "patterns_used": [
+        "continuous-curve",
+        "standing-wave",
+        "billboard-sprite"
+      ],
       "final_score": 9.4,
       "key_lessons": [
         "Bloom radius 0.35 (not 0.58) — one number eliminated the green haze cloud",
@@ -47,7 +51,10 @@
       "topology": "diffuse volume",
       "motion": "drift with attraction-to-result",
       "color_narrative": "signal-driven: cool dim ambient → warm bright cluster on match",
-      "patterns_used": ["particle-cloud", "billboard-sprite"],
+      "patterns_used": [
+        "particle-cloud",
+        "billboard-sprite"
+      ],
       "final_score": 7.6,
       "key_lessons": [
         "Use THREE.Points with per-vertex color — not individual meshes",
@@ -76,7 +83,11 @@
       "topology": "1D path, irregular",
       "motion": "sequential node activation — burst then quiet",
       "color_narrative": "progress-driven: cold blue start → warm gold at active step → dim after completion",
-      "patterns_used": ["continuous-curve", "node-network", "billboard-sprite"],
+      "patterns_used": [
+        "continuous-curve",
+        "node-network",
+        "billboard-sprite"
+      ],
       "final_score": 7.2,
       "key_lessons": [
         "Irregular control point spacing feels more alive than equal spacing",
@@ -105,14 +116,18 @@
       "topology": "3D trajectory",
       "motion": "real-time ODE trace — continuous, never repeating exactly",
       "color_narrative": "velocity-driven: cold blue drift → warm amber generation → gold bloom at leading edge",
-      "patterns_used": ["attractor-trajectory", "continuous-curve", "billboard-sprite"],
+      "patterns_used": [
+        "attractor-trajectory",
+        "continuous-curve",
+        "billboard-sprite"
+      ],
       "final_score": null,
       "key_lessons": [],
       "live_url": null,
       "source_url": null,
       "journal_url": null,
       "status": "brief-complete · implementation pending",
-      "submitter_note": "Alternative form for 弦 — trajectory vs standing-wave. Same agent, different self-reflection angle. Discovered via 5Q flow."
+      "submitter_note": "Alternative form for 弦 — trajectory vs standing-wave. Same agent, different self-reflection angle."
     }
   ]
 }
