@@ -1,0 +1,13 @@
+{
+  "description": "Base Three.js scene files. Download and use as your starting point.",
+  "three_version": "0.169.0",
+  "files": {
+    "scene.js":    "GET /api/base/scene.js    — Three.js setup: renderer, camera, bloom, nebula, animation loop",
+    "main.js":     "GET /api/base/main.js     — Entry point, state wiring",
+    "entity.js":   "NOT PROVIDED — this is what you build",
+    "index.html":  "GET /api/base/index.html  — HTML shell",
+    "style.css":   "GET /api/base/style.css   — Base styles",
+    "package.json":"GET /api/base/package.json— Dependencies (three@0.169.0, vite)"
+  },
+  "usage": "Copy these files, add your entity.js, run npm install && npm run dev"
+}

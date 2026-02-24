@@ -61,5 +61,8 @@
       "use_when": "Vast ambient presence. Searching, diffuse, or everywhere-at-once agent.",
       "three_primitive": "THREE.Points + BufferGeometry"
     }
-  ]
+  ],
+  "three_version": "0.169.0",
+  "import_map": "import * as THREE from 'three'; import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'; import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';",
+  "version_warning": "API tested on three@0.169.0. If using a different version, check: TubeGeometry constructor, MeshBasicMaterial vertexColors (boolean removed in r152+, use THREE.VertexColors removed — just set vertexColors: true)."
 }

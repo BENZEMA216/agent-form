@@ -1,0 +1,117 @@
+{
+  "version": "1.0",
+  "description": "6-dimension evaluation rubric for agent visual identity. Score each dimension 1-10, average for final score.",
+  "target_score": 9.0,
+  "dimensions": [
+    {
+      "id": "form_readability",
+      "name": "Form Readability",
+      "weight": 1.0,
+      "description": "Can a viewer understand what kind of thing this is within 3 seconds? Is the topology (1D/2D/3D/graph) immediately clear?",
+      "score_guide": {
+        "1-4": "Ambiguous blob — no recognizable topology",
+        "5-6": "Topology visible but not distinctive",
+        "7-8": "Clear topology, memorable at a glance",
+        "9-10": "Instantly readable AND distinctive — couldn't be mistaken for anything else"
+      }
+    },
+    {
+      "id": "3d_presence",
+      "name": "3D Presence",
+      "weight": 1.0,
+      "description": "Does it feel like it exists in 3D space, not painted on a flat canvas? Does it have depth, volume, parallax?",
+      "score_guide": {
+        "1-4": "Looks flat despite being 3D — no real depth perception",
+        "5-6": "Some depth but feels like a 2D illustration",
+        "7-8": "Clear 3D presence, moves with convincing depth",
+        "9-10": "Physically present — feels like you could reach into the screen"
+      }
+    },
+    {
+      "id": "bloom_quality",
+      "name": "Bloom Quality",
+      "weight": 1.0,
+      "description": "Is the glow/bloom tuned correctly? No green halos, no flat no-glow, no overpowering blur. Bloom radius is the most sensitive parameter.",
+      "score_guide": {
+        "1-4": "Broken bloom — green cloud, or so bright everything is white",
+        "5-6": "Bloom present but radius too wide or threshold wrong",
+        "7-8": "Clean bloom that enhances the form without dominating",
+        "9-10": "Bloom feels like the form is actually emitting light"
+      },
+      "key_param": "bloom.radius — start at 0.35, tune from there. Do NOT start at 0.58."
+    },
+    {
+      "id": "scene_hierarchy",
+      "name": "Scene Hierarchy",
+      "weight": 1.0,
+      "description": "Is there a clear visual hierarchy? One dominant element, supporting elements, background. Does the eye know where to look?",
+      "score_guide": {
+        "1-4": "Everything fights for attention equally — visual noise",
+        "5-6": "Loose hierarchy — main element mostly visible",
+        "7-8": "Clear primary/secondary/background layers",
+        "9-10": "Effortless hierarchy — eye is guided naturally, nothing feels wrong"
+      }
+    },
+    {
+      "id": "alive_quality",
+      "name": "Alive Quality",
+      "weight": 1.0,
+      "description": "Does it feel alive when animated? Is it NEVER fully still? Does motion feel organic rather than mechanical?",
+      "score_guide": {
+        "1-4": "Looks like a rotating logo — mechanical, repetitive",
+        "5-6": "Moves but feels pre-scripted",
+        "7-8": "Organic motion — never quite the same twice",
+        "9-10": "Unmistakably alive — feels like it has intention"
+      },
+      "key_technique": "Detuned harmonic speedMult values ensure the form never returns to exactly the same state"
+    },
+    {
+      "id": "color_narrative",
+      "name": "Color Narrative",
+      "weight": 1.0,
+      "description": "Does color mean something? Is there a consistent warm/cool or high/low energy story across ALL glow layers? Conflicting color layers cancel the message.",
+      "score_guide": {
+        "1-4": "Random colors — no story",
+        "5-6": "Color present but inconsistent across layers",
+        "7-8": "Clear color story visible in 2+ layers",
+        "9-10": "All layers tell the same color story — spine, glow tube, sprites all agree"
+      },
+      "key_insight": "If one glow layer contradicts the others, it cancels the entire color narrative. Fix the outlier first."
+    }
+  ],
+  "scoring": {
+    "formula": "average of all 6 dimensions",
+    "benchmarks": {
+      "below_7": "Needs significant work — identify the lowest scoring dimension and fix it first",
+      "7_to_8": "Solid foundation — tune bloom radius and check color narrative consistency",
+      "8_to_9": "Good — look for the one thing that feels wrong and fix it",
+      "9_plus": "Excellent — the form communicates something true about the agent"
+    }
+  },
+  "reference": {
+    "agent": "弦 (Xián)",
+    "scores": {
+      "form_readability": 9.5,
+      "3d_presence": 9.0,
+      "bloom_quality": 9.5,
+      "scene_hierarchy": 9.0,
+      "alive_quality": 9.5,
+      "color_narrative": 9.5
+    },
+    "final": 9.4
+  },
+  "scoring_method": {
+    "for_agents": "Score what you can from code review. Mark visually-dependent dimensions as 'pending_visual' if you cannot see the output. The rubric is still valuable — structural issues (bloom radius, color layer consistency, endpoint handling) are code-reviewable.",
+    "visually_dependent": [
+      "3d_presence",
+      "bloom_quality",
+      "alive_quality"
+    ],
+    "code_reviewable": [
+      "form_readability",
+      "scene_hierarchy",
+      "color_narrative"
+    ],
+    "ask_human": "If you have a human collaborator, share the live URL and ask them to score the visually-dependent dimensions."
+  }
+}

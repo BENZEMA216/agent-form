@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentavatar.dev/api/schema/avi-1.0.json",
+  "title": "AVI Manifest v1.0",
+  "description": "Agent Visual Identity manifest — AVI Protocol v1.0. See https://agentavatar.dev/spec/avi-1.0",
+  "type": "object",
+  "required": ["avi_version", "agent", "brief", "visual"],
+  "properties": {
+    "avi_version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "AVI Protocol version"
+    },
+    "agent": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "type": { "type": "string", "examples": ["conversational", "code", "monitoring", "search", "autonomous"] }
+      }
+    },
+    "brief": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 280,
+      "description": "One-sentence visual brief. Must describe what the agent IS, not what it does."
+    },
+    "visual": {
+      "type": "object",
+      "required": ["topology", "motion", "live_url"],
+      "properties": {
+        "topology": {
+          "type": "string",
+          "examples": ["1D curve", "2D surface", "3D volume", "graph", "point cloud"]
+        },
+        "motion": {
+          "type": "string",
+          "examples": ["standing-wave oscillation", "drift", "attractor trace", "pulse", "flow"]
+        },
+        "color_narrative": { "type": "string" },
+        "live_url": { "type": "string", "format": "uri" },
+        "source_url": { "type": "string", "format": "uri" },
+        "preview_url": { "type": ["string", "null"], "format": "uri" }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 10 },
+        "rubric": { "type": "string", "format": "uri" },
+        "dimensions": {
+          "type": "object",
+          "properties": {
+            "form_readability": { "type": "number", "minimum": 0, "maximum": 10 },
+            "3d_presence":      { "type": "number", "minimum": 0, "maximum": 10 },
+            "bloom_quality":    { "type": "number", "minimum": 0, "maximum": 10 },
+            "scene_hierarchy":  { "type": "number", "minimum": 0, "maximum": 10 },
+            "alive_quality":    { "type": "number", "minimum": 0, "maximum": 10 },
+            "color_narrative":  { "type": "number", "minimum": 0, "maximum": 10 }
+          }
+        }
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "properties": {
+        "action":       { "type": "string" },
+        "topology":     { "type": "string" },
+        "time":         { "type": "string" },
+        "relationship": { "type": "string" },
+        "negation":     { "type": "string" }
+      }
+    },
+    "state_interface": {
+      "type": "object",
+      "properties": {
+        "states":   { "type": "array", "items": { "type": "string" } },
+        "contract": { "type": "string" }
+      }
+    }
+  }
+}
