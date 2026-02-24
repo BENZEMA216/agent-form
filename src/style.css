@@ -141,7 +141,9 @@ main {
 /* Canvas side */
 .hero-canvas-wrap {
   position: relative;
-  display: flex; align-items: center; justify-content: center;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  width: 100%;
 }
 
 .hero-canvas-glow {
@@ -966,9 +968,11 @@ code { font-family: inherit; }
 
 /* canvas caption */
 .hero-canvas-caption {
-  margin-top: 12px;
-  display: flex; align-items: center; gap: 8px;
-  justify-content: center;
+  margin-top: 14px;
+  display: flex; align-items: center; gap: 10px;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 4px;
 }
 .canvas-name {
   font-size: 13px; font-weight: 600;
