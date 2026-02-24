@@ -80,7 +80,10 @@ export function renderAgent(el) {
         <p class="term-line term-comment"># Start with Step 1. The brief is everything.</p>
       </div>
 
-      <a href="#/" class="back-link" style="margin: 32px 40px; display:inline-flex">← Back to home</a>
+      <div class="agent-bottom-cta">
+        <a href="#/gallery" class="agent-cta-gallery">View the gallery →</a>
+        <a href="#/" class="back-link">← Back to home</a>
+      </div>
     </div>
   `
 }
