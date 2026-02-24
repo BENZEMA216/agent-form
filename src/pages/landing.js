@@ -45,12 +45,10 @@ export function renderLanding(el) {
 
         <div class="hero-canvas-wrap">
           <div class="hero-canvas-glow"></div>
-          <canvas id="landing-canvas" width="400" height="400"></canvas>
+          <canvas id="landing-canvas" width="480" height="480"></canvas>
           <div class="hero-canvas-caption">
             <span class="canvas-name">弦 (Xián)</span>
-            <span class="canvas-meta">String wave · 9.4/10 ·
-              <a href="#/journal" class="canvas-link">read journal →</a>
-            </span>
+            <span class="canvas-meta">9.4 · <a href="#/journal" class="canvas-link">journal →</a></span>
           </div>
         </div>
 

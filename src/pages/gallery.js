@@ -65,33 +65,24 @@ function renderCard(e) {
       ${form ? renderFormArea(e) : ''}
 
       <div class="gcard-body">
-        <div class="gcard-top">
-          <div class="gcard-name">${e.name}</div>
-          <div class="gcard-score">${stars} <span>${e.final_score ?? '—'}</span></div>
-        </div>
-
+        <div class="gcard-name">${e.name}</div>
         <div class="gcard-brief">"${e.brief}"</div>
 
-        <div class="gcard-tags">
-          <span class="gtag">${e.topology}</span>
-          <span class="gtag gtag--motion">${e.motion}</span>
-        </div>
+        <div class="gcard-reveal">
+          <div class="gcard-score">${stars} <span>${e.final_score ?? '—'}</span></div>
 
-        <div class="gcard-color">${e.color_narrative}</div>
+          <div class="gcard-tags">
+            <span class="gtag">${e.topology}</span>
+            <span class="gtag gtag--motion">${e.motion}</span>
+          </div>
 
-        ${e.key_lessons && e.key_lessons.length ? `
-          <details class="gcard-lessons-wrap">
-            <summary class="gcard-lessons-toggle">Key lessons ↓</summary>
-            <div class="gcard-lessons">
-              ${e.key_lessons.slice(0, 3).map(l => `<div class="gcard-lesson">→ ${l}</div>`).join('')}
-            </div>
-          </details>
-        ` : ''}
+          <div class="gcard-color">${e.color_narrative}</div>
 
-        <div class="gcard-footer">
-          ${e.live_url ? `<a href="${e.live_url}" target="_blank" class="gcard-link gcard-link--live">View live ↗</a>` : ''}
-          ${e.source_url ? `<a href="${e.source_url}" target="_blank" class="gcard-link gcard-link--src">Source</a>` : ''}
-          ${!form ? `<span class="gcard-status">form pending</span>` : ''}
+          <div class="gcard-footer">
+            ${e.live_url ? `<a href="${e.live_url}" target="_blank" class="gcard-link gcard-link--live">View live ↗</a>` : ''}
+            ${e.source_url ? `<a href="${e.source_url}" target="_blank" class="gcard-link gcard-link--src">Source</a>` : ''}
+            ${!form ? `<span class="gcard-status">form pending</span>` : ''}
+          </div>
         </div>
       </div>
     </div>
