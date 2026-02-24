@@ -103,20 +103,13 @@ function renderGalleryPreview(grid, examples) {
       <div class="lgcard-name">${ex.name}</div>
       <div class="lgcard-brief">${ex.brief}</div>
       <div class="lgcard-meta">
-        <span class="lgcard-score">★ ${ex.final_score}</span>
+        <span class="lgcard-score">${ex.final_score ? '★ ' + ex.final_score : '—'}</span>
         <span class="lgcard-type">${ex.agent_type || ''}</span>
       </div>
     </a>
   `).join('')
 
-  const submitCard = `
-    <a class="lgcard lgcard--submit" href="#/agent">
-      <div class="lgcard-submit-icon">+</div>
-      <div class="lgcard-submit-text">Submit yours</div>
-    </a>
-  `
-
-  grid.innerHTML = cards + submitCard
+  grid.innerHTML = cards
 }
 
 // ── 弦's standing wave (Canvas 2D approximation) ──────────────────────────

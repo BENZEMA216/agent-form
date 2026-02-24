@@ -34,7 +34,7 @@ function renderCard(e) {
     <div class="gcard">
       <div class="gcard-top">
         <div class="gcard-name">${e.name}</div>
-        <div class="gcard-score" title="Score: ${e.final_score}/10">${stars} <span>${e.final_score}</span></div>
+        <div class="gcard-score" title="Score: ${e.final_score ?? '—'}/10">${stars} <span>${e.final_score ?? '—'}</span></div>
       </div>
 
       <div class="gcard-brief">"${e.brief}"</div>
@@ -71,6 +71,7 @@ function renderSubmitCard() {
 }
 
 function scoreToStars(score) {
+  if (!score) return '◇◇◇◇◇'
   const filled = Math.round(score / 2)
   return '◆'.repeat(filled) + '◇'.repeat(5 - filled)
 }
