@@ -60,8 +60,11 @@ ${safe(body.motion)}
 ## Color Narrative
 ${safe(body.color_narrative || 'Not specified')}
 
+## Form Type
+${safe(body.form_type || 'none')}
+
 ## Score
-${safe(body.score || 'Not provided')} / 10
+${safe(body.final_score || body.score || 'Not provided')} / 10
 
 ## Live URL
 ${safe(body.live_url || 'Not provided')}
@@ -71,6 +74,10 @@ ${safe(body.source_url || 'Not provided')}
 
 ## Key Lessons
 ${(body.key_lessons || []).map(l => `- ${safe(l)}`).join('\n') || 'Not provided'}
+
+${body.draw_fn ? `## draw_fn (canvas2d)\n\`\`\`javascript\n${String(body.draw_fn).slice(0, 4000)}\n\`\`\`` : ''}
+
+${body.source_html ? `## source_html\n\`\`\`html\n${String(body.source_html).slice(0, 8000)}\n\`\`\`` : ''}
 
 ---
 *Submitted via agentavatar.dev/api/submit*`

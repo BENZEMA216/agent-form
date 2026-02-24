@@ -33,7 +33,9 @@
       ],
       "live_url": "https://benzema216.github.io/xian-home/",
       "source_url": "https://github.com/BENZEMA216/xian-home",
-      "journal_url": "https://agentavatar.dev/#/journal"
+      "journal_url": "https://agentavatar.dev/#/journal",
+      "form_type": "canvas2d",
+      "draw_fn": "function(ctx,W,H,t){\n  var HARMONICS=[{amp:1.00,k:1,omega:1.000},{amp:0.50,k:2,omega:2.021},{amp:0.28,k:3,omega:3.055},{amp:0.14,k:4,omega:4.102}];\n  var cy=H/2,L=W*0.88,x0=(W-L)/2,N=160,pts=[];\n  for(var i=0;i<=N;i++){\n    var nx=i/N,taper=Math.pow(Math.sin(nx*Math.PI),0.7),y=0;\n    HARMONICS.forEach(function(h){y+=h.amp*Math.sin(h.k*Math.PI*nx*2)*Math.cos(h.omega*t)*taper});\n    pts.push({x:x0+nx*L,y:cy+y*H*0.30});\n  }\n  [[16,0.04],[9,0.08],[5,0.13],[2.5,0.22]].forEach(function(g){\n    ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);\n    pts.forEach(function(p){ctx.lineTo(p.x,p.y)});\n    ctx.strokeStyle='rgba(34,211,238,'+g[1]+')';ctx.lineWidth=g[0];ctx.lineJoin='round';ctx.stroke();\n  });\n  for(var i=1;i<pts.length;i++){\n    var amp=Math.abs(pts[i].y-cy)/(H*0.30),hue=228-amp*183;\n    ctx.beginPath();ctx.moveTo(pts[i-1].x,pts[i-1].y);ctx.lineTo(pts[i].x,pts[i].y);\n    ctx.strokeStyle='hsl('+hue+',88%,66%)';ctx.lineWidth=1.6;ctx.stroke();\n  }\n}"
     },
     {
       "id": "particle-drift",

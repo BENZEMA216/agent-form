@@ -685,12 +685,23 @@ code { font-family: inherit; }
 }
 .gcard:hover { border-color: var(--border-hi); transform: translateY(-2px); }
 
-/* Canvas preview at the top of each card */
-.gcard-canvas {
-  width: 100%; height: 148px;
+/* Form area at top of card — canvas2d or iframe */
+.gcard-canvas,
+.gcard-iframe {
+  width: 100%; height: 150px;
   display: block;
   background: #030210;
   flex-shrink: 0;
+  border: none;
+}
+
+/* Pending card — no form yet, text-only */
+.gcard--pending {
+  border-style: solid;
+  border-color: var(--border);
+}
+.gcard--pending .gcard-body {
+  padding-top: 24px;
 }
 
 /* Card body (text content below the canvas) */
