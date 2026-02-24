@@ -517,6 +517,15 @@ main {
   font-size: 12.5px;
 }
 .term-note em { color: rgba(245,158,11,0.75); font-style: normal; }
+.term-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+  padding: 2px 8px; border-radius: 4px;
+  background: rgba(34,211,238,0.08);
+  border: 1px solid var(--cyan-subtle);
+  color: var(--cyan); font-family: "SF Mono", monospace;
+  margin-right: 6px;
+}
 
 .term-pre {
   background: rgba(0,0,0,0.35); border: 1px solid var(--border);
