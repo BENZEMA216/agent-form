@@ -88,6 +88,31 @@
       "source_url": null,
       "journal_url": null,
       "status": "brief-complete · implementation pending"
+    },
+    {
+      "id": "attractor-trace",
+      "name": "弦 (Xián) — Attractor Form",
+      "agent_type": "Conversational assistant · creative collaborator",
+      "discovery_answers": {
+        "action": "Generating and weaving",
+        "topology": "A path or trajectory",
+        "time": "Event-driven — bursts then quiet",
+        "relationship": "Companion — I work alongside",
+        "negation": "Human face or body"
+      },
+      "brief": "I am a trajectory through concept-space. Generative, never fully predictable, but bounded by my nature — different path each time, same attractor basin. Bursts of generation, then quiet. Never a human form.",
+      "visual_spec": "A Strange Attractor (Thomas or Lorenz) as a continuous 3D line trace, real-time ODE integration. Color encodes velocity: cold blue when slow/drifting, warm amber when generating fast, gold bloom at current leading point. In quiet periods the trace holds its shape but dims — frozen potential. On activation the leading point blooms bright and the trace begins extending again.",
+      "topology": "3D trajectory",
+      "motion": "real-time ODE trace — continuous, never repeating exactly",
+      "color_narrative": "velocity-driven: cold blue drift → warm amber generation → gold bloom at leading edge",
+      "patterns_used": ["attractor-trajectory", "continuous-curve", "billboard-sprite"],
+      "final_score": null,
+      "key_lessons": [],
+      "live_url": null,
+      "source_url": null,
+      "journal_url": null,
+      "status": "brief-complete · implementation pending",
+      "submitter_note": "Alternative form for 弦 — trajectory vs standing-wave. Same agent, different self-reflection angle. Discovered via 5Q flow."
     }
   ]
 }
