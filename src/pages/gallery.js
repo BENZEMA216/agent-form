@@ -1,3 +1,5 @@
+import { startPreview } from '../preview.js'
+
 export async function renderGallery(el) {
   el.innerHTML = `<div class="gallery-page"><div class="gallery-loading">Loading gallery…</div></div>`
 
@@ -26,35 +28,50 @@ export async function renderGallery(el) {
       </div>
     </div>
   `
+
+  // Start canvas animations (after DOM is mounted)
+  examples.forEach(e => {
+    const canvas = el.querySelector(`#preview-${e.id}`)
+    if (canvas) startPreview(canvas, e.patterns_used)
+  })
 }
 
 function renderCard(e) {
   const stars = scoreToStars(e.final_score)
+  const hasImpl = e.live_url || e.source_url
   return `
     <div class="gcard">
-      <div class="gcard-top">
-        <div class="gcard-name">${e.name}</div>
-        <div class="gcard-score" title="Score: ${e.final_score ?? '—'}/10">${stars} <span>${e.final_score ?? '—'}</span></div>
-      </div>
+      <canvas class="gcard-canvas" id="preview-${e.id}" width="340" height="140"></canvas>
 
-      <div class="gcard-brief">"${e.brief}"</div>
-
-      <div class="gcard-tags">
-        <span class="gtag">${e.topology}</span>
-        <span class="gtag">${e.motion}</span>
-      </div>
-
-      <div class="gcard-color">${e.color_narrative}</div>
-
-      ${e.key_lessons ? `
-        <div class="gcard-lessons">
-          ${e.key_lessons.slice(0, 2).map(l => `<div class="gcard-lesson">→ ${l}</div>`).join('')}
+      <div class="gcard-body">
+        <div class="gcard-top">
+          <div class="gcard-name">${e.name}</div>
+          <div class="gcard-score" title="Score: ${e.final_score ?? '—'}/10">${stars} <span>${e.final_score ?? '—'}</span></div>
         </div>
-      ` : ''}
 
-      <div class="gcard-footer">
-        ${e.live_url ? `<a href="${e.live_url}" target="_blank" class="gcard-link gcard-link--live">View live ↗</a>` : ''}
-        ${e.source_url ? `<a href="${e.source_url}" target="_blank" class="gcard-link gcard-link--src">Source</a>` : ''}
+        <div class="gcard-brief">"${e.brief}"</div>
+
+        <div class="gcard-tags">
+          <span class="gtag">${e.topology}</span>
+          <span class="gtag gtag--motion">${e.motion}</span>
+        </div>
+
+        <div class="gcard-color">${e.color_narrative}</div>
+
+        ${e.key_lessons && e.key_lessons.length ? `
+          <details class="gcard-lessons-wrap">
+            <summary class="gcard-lessons-toggle">Key lessons ↓</summary>
+            <div class="gcard-lessons">
+              ${e.key_lessons.slice(0, 3).map(l => `<div class="gcard-lesson">→ ${l}</div>`).join('')}
+            </div>
+          </details>
+        ` : ''}
+
+        <div class="gcard-footer">
+          ${e.live_url ? `<a href="${e.live_url}" target="_blank" class="gcard-link gcard-link--live">View live ↗</a>` : ''}
+          ${e.source_url ? `<a href="${e.source_url}" target="_blank" class="gcard-link gcard-link--src">Source</a>` : ''}
+          ${!hasImpl ? `<span class="gcard-status">${e.status || 'in progress'}</span>` : ''}
+        </div>
       </div>
     </div>
   `
@@ -63,9 +80,11 @@ function renderCard(e) {
 function renderSubmitCard() {
   return `
     <a class="gcard gcard--submit" href="#/agent">
-      <div class="gcard-submit-icon">＋</div>
-      <div class="gcard-submit-title">Submit yours</div>
-      <div class="gcard-submit-sub">Built a visual identity for your agent?<br>Add it to the gallery.</div>
+      <div class="gcard-submit-inner">
+        <div class="gcard-submit-icon">＋</div>
+        <div class="gcard-submit-title">Submit yours</div>
+        <div class="gcard-submit-sub">Built a visual identity for your agent?<br>Add it to the gallery.</div>
+      </div>
     </a>
   `
 }

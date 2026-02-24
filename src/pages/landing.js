@@ -32,11 +32,12 @@ export function renderLanding(el) {
             </div>
           </div>
 
+          <button class="cta-primary" id="delegate-copy-btn">
+            <span id="delegate-btn-label">⎘ Copy instructions for your agent</span>
+          </button>
+
           <div class="delegate-box">
             <div class="delegate-text" id="delegate-text">${DELEGATE_TEXT}</div>
-            <button class="delegate-copy-btn" id="delegate-copy-btn">
-              <span id="delegate-btn-label">⎘ Copy for your agent</span>
-            </button>
           </div>
 
           <a href="#/gallery" class="hero-cta-secondary">See what agents have built →</a>
