@@ -1203,130 +1203,176 @@ code { font-family: inherit; }
    MOBILE — placed last to ensure cascade priority
    ══════════════════════════════════════════════════ */
 
-/* Tablet: collapse hero split */
+/* Tablet ≤ 860px: collapse two-column hero to single column */
 @media (max-width: 860px) {
+  .landing { padding: 40px 28px 48px; }
   .hero-split {
     grid-template-columns: 1fr;
-    gap: 24px; min-height: auto; padding: 24px 0 12px;
+    gap: 20px; min-height: auto; padding: 20px 0 8px;
   }
   .hero-canvas-wrap { order: -1; }
-  #landing-canvas { max-width: 300px; }
+  #landing-canvas { max-width: 260px; }
   .hero-text { align-items: center; text-align: center; }
   .hero-body { max-width: 100%; }
-  .landing { padding: 40px 24px 40px; }
-  .how-steps { align-self: center; width: 280px; align-items: flex-start; }
+  .how-steps { align-self: center; width: 290px; align-items: flex-start; }
   .how-step, .how-text { text-align: left; }
-  .landing-gallery { margin-top: 40px; }
+  .landing-gallery { margin-top: 48px; }
 }
 
-/* Phone: ≤ 520px */
+/* ─────────────────────────────────────────────────
+   Phone ≤ 520px  — LEFT-ALIGNED, mobile-first
+───────────────────────────────────────────────── */
 @media (max-width: 520px) {
-  /* No horizontal overflow ever */
-  html, body { overflow-x: hidden; max-width: 100vw; }
+  html, body { overflow-x: hidden; }
   * { min-width: 0; box-sizing: border-box; }
 
   /* Nav */
-  nav { padding: 0 16px; height: 48px; }
+  nav { padding: 0 20px; height: 48px; }
   .protocol-link, .discover-link, .journal-link { display: none !important; }
-  .nav-links { gap: 4px; }
-  .nav-links a { padding: 6px 12px; font-size: 13px; }
-  .logo { font-size: 13px; }
+  .nav-links { gap: 0; }
+  .nav-links a { padding: 6px 10px; font-size: 13px; }
+  .logo { font-size: 14px; }
 
-  /* Landing: tighter top — nav is 48px, don't double-pad */
-  .landing { padding: 24px 20px 32px; max-width: 100%; }
-
-  /* Hero: text first, canvas below and small */
-  .hero-split {
-    gap: 20px; padding: 16px 0 8px;
-  }
-  .hero-canvas-wrap {
-    order: 1 !important;   /* push canvas BELOW text on mobile */
-  }
-  #landing-canvas { max-width: min(160px, 55vw) !important; }
-  .hero-canvas-glow { display: none; }       /* no glow overhead */
-  .hero-canvas-caption { display: none; }    /* too small to read */
-
-  /* Hero text */
-  .hero-text { gap: 12px !important; }
-  .hero-headline {
-    font-size: clamp(26px, 7vw, 34px) !important;
-    letter-spacing: -0.025em !important;
-    overflow-wrap: break-word; width: 100%;
-  }
-  .hero-body {
-    font-size: 14px !important; line-height: 1.65;
-    overflow-wrap: break-word; max-width: 100%;
-    margin-bottom: 16px !important;
-  }
-
-  /* Badge */
-  .badge {
-    font-size: 10px !important; letter-spacing: 0.06em !important;
-    padding: 4px 10px !important;
-  }
-
-  /* Steps — fixed-width block, centered on page, circles vertically aligned */
-  .how-steps {
-    gap: 10px;
-    width: 260px !important;         /* fixed width: all rows same size */
-    align-self: center !important;   /* center the block in the column */
+  /* ── Landing: single column, all LEFT-aligned ── */
+  .landing {
+    padding: 28px 22px 36px;
     align-items: flex-start !important;
+    justify-content: flex-start !important;
+    min-height: auto !important;
+  }
+
+  /* Hero split: single col, text first, NO canvas */
+  .hero-split {
+    grid-template-columns: 1fr !important;
+    gap: 0; padding: 0; min-height: auto;
+    display: flex !important; flex-direction: column;
+  }
+  .hero-canvas-wrap { display: none !important; }   /* hide canvas on mobile */
+
+  /* Hero text: LEFT aligned */
+  .hero-text {
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 14px !important;
+    width: 100%;
+  }
+
+  /* Badge: smaller, quieter */
+  .badge {
+    font-size: 10px !important;
+    letter-spacing: 0.08em !important;
+    padding: 3px 9px !important;
     margin-bottom: 4px !important;
   }
-  .how-step {
-    width: 100%;
-    text-align: left;
-  }
-  .how-text {
-    font-size: 13px;
+
+  /* Headline: big but not overwhelming */
+  .hero-headline {
+    font-size: clamp(28px, 8vw, 38px) !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.08 !important;
     text-align: left !important;
     overflow-wrap: break-word;
+    width: 100%;
   }
 
-  /* CTA */
+  /* Body text: left, readable */
+  .hero-body {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    text-align: left !important;
+    color: rgba(175,185,200,0.80) !important;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    margin-bottom: 4px !important;
+  }
+
+  /* Steps: left-aligned list, full width */
+  .how-steps {
+    width: 100% !important;
+    align-items: flex-start !important;
+    align-self: auto !important;
+    gap: 10px !important;
+    margin-bottom: 4px !important;
+  }
+  .how-step { width: 100%; text-align: left; }
+  .how-text {
+    font-size: 13px !important;
+    text-align: left !important;
+    color: rgba(175,185,200,0.72) !important;
+  }
+
+  /* CTA: full-width primary, slim secondary */
   .cta-primary {
-    width: 100% !important; justify-content: center;
-    padding: 12px 16px !important; font-size: 13px !important;
+    width: 100% !important;
+    justify-content: center;
+    padding: 13px 20px !important;
+    font-size: 14px !important;
+    margin: 6px 0 10px !important;
+  }
+  .hero-cta-secondary {
+    font-size: 13px !important;
+    text-align: left !important;
+    align-self: flex-start;
+    padding: 4px 0 !important;
+    border: none !important;
+    background: none !important;
+    color: rgba(175,185,200,0.55) !important;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .hero-cta-secondary:hover {
+    color: rgba(250,250,252,0.85) !important;
+    border: none !important;
   }
 
-  /* Delegate box — keep URL on one line or break cleanly */
-  .delegate-box { padding: 12px 14px; max-width: 100%; }
+  /* Delegate box: compact code snippet feel */
+  .delegate-box {
+    padding: 11px 14px !important;
+    background: rgba(255,255,255,0.03) !important;
+    border-color: rgba(255,255,255,0.10) !important;
+  }
   .delegate-text {
-    font-size: 11px !important; line-height: 1.7;
-    white-space: normal !important;          /* allow natural wrapping */
-    overflow-wrap: break-word;               /* break long URLs at edge only */
-    word-break: normal;
+    font-size: 11px !important;
+    line-height: 1.6 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    color: rgba(200,215,230,0.65) !important;
   }
 
-  .hero-cta-secondary { font-size: 13px; max-width: 100%; text-align: center; }
+  /* Landing gallery preview */
+  .landing-gallery {
+    width: 100% !important;
+    margin-top: 32px !important;
+    padding: 0 !important;
+  }
+  .landing-gallery-header { margin-bottom: 12px; }
 
-  /* Landing gallery */
-  .landing-gallery { padding: 0; width: 100%; margin-top: 28px !important; }
-
-  /* Footer — vertical stack */
+  /* Footer: stack vertically */
   .landing-footer {
     flex-direction: column !important;
-    align-items: center !important;
-    gap: 8px !important; text-align: center;
+    align-items: flex-start !important;
+    gap: 6px !important;
     font-size: 11px !important;
-    margin-top: 28px !important;
+    margin-top: 32px !important;
+    letter-spacing: 0.04em !important;
   }
   .landing-footer::before,
   .landing-footer::after { display: none !important; }
 
-  /* Gallery page */
-  .gallery-page { padding: 36px 16px 72px !important; }
-  .gallery-header { margin-bottom: 24px; }
+  /* ── Gallery page ── */
+  .gallery-page { padding: 36px 16px 64px !important; }
+  .gallery-header { margin-bottom: 24px; text-align: left !important; }
   .gallery-header h1 { font-size: 26px !important; }
   .gallery-sub { font-size: 13px !important; }
   .gallery-grid { gap: 12px !important; }
 
-  /* Inner pages */
+  /* ── Inner pages ── */
   .discover, .journal, .agent-page,
   .spec-page { padding-left: 16px !important; padding-right: 16px !important; }
 
-  /* Terminal */
-  .agent-terminal { padding: 36px 0; }
+  /* ── Terminal ── */
+  .agent-terminal { padding: 32px 0; }
   .term-header, .term-body { margin: 0 12px !important; }
   .term-body { padding: 16px 14px !important; font-size: 12px !important; }
 }
