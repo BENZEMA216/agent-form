@@ -654,56 +654,80 @@ code { font-family: inherit; }
 
 /* ── Mobile (≤ 520px) — iPhone SE to iPhone 15 ── */
 @media (max-width: 520px) {
+  /* Prevent any element from widening the page */
+  html, body { overflow-x: hidden; max-width: 100vw; }
+  * { min-width: 0; }
+
   /* Nav: hide secondary links, keep Gallery + For Agents */
   nav { padding: 0 16px; height: 48px; }
-  .nav-links .protocol-link,
-  .nav-links .discover-link,
-  .nav-links .journal-link { display: none; }
+  .protocol-link, .discover-link, .journal-link { display: none !important; }
+  .nav-links { gap: 2px; }
   .nav-links a { padding: 5px 10px; font-size: 13px; }
   .logo { font-size: 13px; }
 
-  /* Landing */
-  .landing { padding: 40px 20px 40px; }
+  /* Landing container */
+  .landing { padding: 40px 20px 40px; max-width: 100%; }
+  .hero-split { max-width: 100%; }
+  .hero-text { max-width: 100%; width: 100%; }
+
+  /* Hero headline — smaller, always wraps */
   .hero-headline {
-    font-size: clamp(32px, 10vw, 44px);
-    letter-spacing: -0.03em;
+    font-size: clamp(28px, 7.5vw, 36px);
+    letter-spacing: -0.025em;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
   }
-  .hero-body { font-size: 14px; line-height: 1.7; }
-  .badge { font-size: 10px; letter-spacing: 0.07em; padding: 4px 10px; }
-  #landing-canvas { max-width: 240px; }
+  .hero-body {
+    font-size: 14px; line-height: 1.7; max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  /* Badge — constrain width */
+  .badge {
+    font-size: 10px; letter-spacing: 0.07em; padding: 4px 10px;
+    max-width: calc(100vw - 40px); overflow: hidden;
+    white-space: nowrap; text-overflow: ellipsis;
+  }
+
+  /* Canvas */
+  #landing-canvas { max-width: min(240px, 80vw); }
 
   /* Steps */
-  .how-steps { gap: 8px; }
-  .how-text { font-size: 13px; }
+  .how-steps { gap: 8px; width: 100%; }
+  .how-step { max-width: 100%; }
+  .how-text { font-size: 13px; overflow-wrap: break-word; }
 
   /* CTA button */
-  .cta-primary { padding: 12px 20px; font-size: 13px; width: 100%; justify-content: center; }
+  .cta-primary {
+    padding: 12px 20px; font-size: 13px;
+    width: 100%; justify-content: center; box-sizing: border-box;
+  }
 
-  /* Delegate box — prevent overflow */
-  .delegate-box { padding: 12px 14px; }
+  /* Delegate box — wrap long URL */
+  .delegate-box { padding: 12px 14px; max-width: 100%; }
   .delegate-text {
     font-size: 11px; line-height: 1.7;
-    white-space: pre-wrap;       /* wrap long URL */
+    white-space: pre-wrap;
     word-break: break-all;
+    overflow-wrap: anywhere;
   }
 
   /* Secondary link */
-  .hero-cta-secondary { font-size: 13px; }
+  .hero-cta-secondary { font-size: 13px; max-width: 100%; text-align: center; }
 
-  /* Gallery preview */
-  .landing-gallery { padding: 0; }
-  .landing-gallery-grid { grid-template-columns: 1fr; }
+  /* Landing gallery preview */
+  .landing-gallery { padding: 0; width: 100%; }
 
   /* Gallery page */
   .gallery-page { padding: 40px 16px 80px; }
-  .gallery-header { margin-bottom: 32px; }
+  .gallery-header { margin-bottom: 28px; }
   .gallery-header h1 { font-size: 28px; }
   .gallery-sub { font-size: 14px; }
-  .gallery-grid { gap: 16px; }
-  .gcard-canvas, .gcard-iframe { height: 180px; }
+  .gallery-grid { gap: 14px; }
   .gcard-name { font-size: 14px; }
 
-  /* Agent / Discover / Journal pages */
+  /* All inner pages */
   .discover, .journal, .agent-page,
   .spec-page, .gallery-page { padding-left: 16px; padding-right: 16px; }
 
